@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Libre+Baskerville&family=Lora&family=Macondo&family=Oleo+Script+Swash+Caps&family=Source+Code+Pro:wght@500&display=swap');
+.bg {
+    background-color: #333333;
+}
+
+.nav-bar {
+    position: absolute;
+    height: 83px;
+    width: 100%;
+    background-color: #D6D1CB;
+    top: 0px;
+}
+
+.nav-bar h1 {
+    font-size: 45px;
+    margin-top: 15px;
+    margin-left: 75px;
+    color: rgb(46, 120, 95);
+    font-family: 'Libre Baskerville', serif;
+}
+
+.nav-bar a {
+    position: absolute;
+    top: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 35px;
+    color: #333333;
+}
+
+.nav-bar a span {
+    font-weight: 500;
+}
+
+.nav-bar a span:hover {
+    color: #DB3C2E;
+}
+
+.address-box {
+    position: absolute;
+    top: 160px;
+    margin-left: 900px;
+    width: 860px;
+    height: 686px;
+    border: 2px solid #D6D1CB;
+    color: #D6D1CB;
+    background-color: #333333;
+    border-radius: 30px;
+}
+
+.logo img {
+    position: absolute;
+    top: 14px;
+    margin-left: 467px;
+    width: 100px;
+    height: 115px;
+}
+
+.logo h1 {
+    position: absolute;
+    top: 17px;
+    margin-left: 563px;
+    font-size: 37px;
+    color: #DB3C2E;
+    font-family: 'Macondo', cursive;
+}
+
+/* Delivery To : */
+.address-box h2 {
+    margin-top: 108px;
+    padding-top: 5px;
+    margin-left: 52px;
+    font-family: 'Macondo', cursive;
+    font-weight: 600;
+    font-size: 40px;
+    color: rgb(46, 120, 95);
+}
+
+button {
+    position: fixed;
+    height: 50px;
+    width: 180x;
+    cursor: pointer;
+    border-radius: 50px;
+    color: #D6D1CB;
+    margin-left: 540px;
+    bottom: 180px;
+    font-size: 18px;
+    background-color: rgb(46, 120, 95);
+    border: 2px solid rgb(46, 120, 95);
+
+}
+
+.profile-box {
+    position: absolute;
+    top: 140px;
+    margin-left: 480px;
+    width: 300px;
+    height: 122px;
+    border: 2px solid rgb(46, 120, 95);
+    color: #D6D1CB;
+    background-color: #333333;
+    border-radius: 30px;
+}
+
+/* Hi User */
+.address-box .profile-box h3 {  
+    top: 10px;
+    text-align: center;
+    font-family: 'Macondo', cursive;
+    font-size: 30px;
+    color: #D6D1CB;
+}
+
+/* Total Cost */
+.address-box h4, h5, h6 {
+    position: absolute;
+    top: 280px;
+    left: 495px;
+    font-family: 'Macondo', cursive;
+    font-size: 27px;
+    color: #D6D1CB;
+}
+
+.address-box form {
+    width: 270px;
+    margin-top: 42px;
+    margin-left: 55px;
+}
+
+.address-box form label {
+    display: flex;
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+.address-box form input {
+    width: 280px;
+    height: 16px;
+    font-size: 18px;
+    padding: 6px;
+    border: none;
+    border: 1.5px solid gray;
+    border-radius: 6px;
+    outline: none;
+}
+
+.address-box form input[type="submit"] {
+    width: 160px;
+    margin-top: 36px;
+    margin-left: 74px;
+    height: 45px;
+    border-radius: 50px;
+    border: 1.5px solid #A8CFF0;
+    background-color: #DB3C2E;
+    color: white;
+    font-size: 26px;
+}
+
+.address-box form input[type="submit"]:hover {
+    background-color: transparent;
+    border: 2px solid rgb(52, 120, 39);
+    color: #D6D1CB;
+    cursor: pointer;
+}
+
+.order img {
+    position: absolute;
+    height: 590px;
+    width: 555px;
+    top: 220px;
+    margin-left: 135px;
+}

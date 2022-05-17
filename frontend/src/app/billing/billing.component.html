@@ -1,0 +1,53 @@
+<div class="bg">
+    <img style="height:920px; width:1920px;" src="../../assets/img/plainbg.jpg">
+</div>
+
+<div class="nav-bar">
+    <h1>INVOICE</h1>
+
+    <a style="margin-left:1688px;" (click)="logoutUser()">
+        <span>LOGOUT</span>
+    </a>
+</div>
+
+<div class="order">
+    <img src="../../assets/img/order.png">
+</div>
+
+<div class="address-box">
+
+    <div class="logo">
+        <img src="../../assets/img/logo.png">
+        <h1>Foodiez Spot</h1>
+    </div>
+
+    <h2>Delivery To :</h2>
+    
+    <div class="profile-box">
+        <h3> {{username}} <br> {{phoneNo}}</h3>
+    </div>
+
+    <h4 style="top:290px;">Total Cost ----------- &#8377;{{totalPrice}}</h4>
+    <h5 style="top:325px;">Delivery Charges --- &#8377;50</h5>
+    <h6 style="top:390px;">Final Bill ------------ &#8377;</h6>
+
+    
+    <button>&emsp;PROCEED TO PAY&emsp;</button>
+    
+
+    <form #address="ngForm" (ngSubmit)="AddressData(address.value)">
+        <label>Door No</label>
+        <input type="text" ngModel required name="doorNo" placeholder="" />
+        <label>Street</label>
+        <input type="text" ngModel required name="street" placeholder="" />
+        <label>Area</label>
+        <input type="text" ngModel required name="area" placeholder="" />
+        <label>District</label>
+        <input type="text" ngModel required name="district" placeholder="" />
+        <label>Pincode</label>
+        <input type="text" ngModel required name="pincode" placeholder="" />
+
+        <input type="submit" [disabled]="!address.valid" value="EDIT">
+    </form>
+
+</div>

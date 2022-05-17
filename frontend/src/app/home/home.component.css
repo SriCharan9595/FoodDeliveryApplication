@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,700&family=Macondo&family=Oleo+Script+Swash+Caps&display=swap');
+.bg {
+    background-color: #333333;
+}
+
+.logo img {
+    position: absolute;
+    top: 28px;
+    margin-left: 25px;
+    width: 120px;
+    height: 140px;
+}
+
+.logo h1 {
+    position: absolute;
+    top: 22px;
+    margin-left: 135px;
+    font-size: 50px;
+    color: #DB3C2E;
+    font-family: 'Macondo', cursive;
+}
+
+.banner-text h1{
+    position: absolute;
+    top: 180px;
+    color: #D6D1CB;
+    font-size: 60px;
+    margin-left: 180px;
+}
+
+.banner-text h2 {
+    position: absolute;
+    top: 250px;
+    font-size: 60px;
+    color: #D6D1CB;
+    margin-left: 83px;
+}
+
+.banner-text h3,h4,h5 {
+    position: absolute;
+    font-size: 35px;
+    color: rgb(46,120,95);
+    font-family: 'Lora', serif;
+}
+
+.reg-login span {
+    position: absolute;
+    top: 600px;
+    margin-left: 165px;
+    background-color: #DB3C2E;
+    color: #D6D1CB;
+    border-radius: 50px;
+    font-size: 35px;
+    padding: 6px;
+}
+
+.reg-login span:hover {
+    background-color: transparent;
+    border: 2px solid rgb(46,120,95);
+    color: #D6D1CB;
+}
+
+.media h1 {
+    position: absolute;
+    top: 720px;
+    font-size: 30px;
+    margin-left: 145px;
+    color: #D6D1CB;
+}
+
+.media img {
+    position: absolute;
+    width:40px; 
+    height:40px;
+    padding: 3px;
+    border-radius:80%;
+    top: 800px;
+    cursor: pointer;
+}
+
+.media img:hover {
+    border: 1px solid #D6D1CB;
+}

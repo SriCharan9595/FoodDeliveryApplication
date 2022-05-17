@@ -1,0 +1,33 @@
+<div class="bg">
+    <img style="height:920px; width:1920px;" src="../../assets/img/bg.jpg">
+</div>
+
+<div class="addHotel-box">
+    <h1>ADD A HOTEL</h1>
+
+    <form #addHotel="ngForm" (ngSubmit)="AddHotelData(addHotel.value)">
+        <label style="font-size:26px;">Category</label>
+        <!-- <input type="text" ngModel required name="category" placeholder="" /> -->
+        <select name="category" [(ngModel)]="selectedCategory" class="form-control" required>
+            <option disabled>- please choose category type -</option>
+            <option *ngFor="let type of Category" [ngValue]="type.category">
+                {{type.category}}
+            </option>
+        </select>
+
+        <label>Hotel Name</label>
+        <input type="text" ngModel required name="hotelName" placeholder="" />
+        
+        <label>Area</label>
+        <input type="text" ngModel required name="area" placeholder="" />
+        
+        <label>Rating</label>
+        <input type="text" ngModel required name="rating" placeholder="" />
+        
+        <label>Img URL</label>
+        <input type="text" ngModel required name="hotelUrl" placeholder="">
+
+        <input type="submit" [disabled]="!addHotel.valid" value="ADD">
+    </form>
+
+</div>

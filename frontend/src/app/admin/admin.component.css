@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Macondo&family=Oleo+Script+Swash+Caps&display=swap');
+.bg {
+    background-color: #333333;
+}
+
+.nav-bar {
+    position: absolute;
+    height: 83px;
+    width: 100%;
+    background-color: #D6D1CB;
+    top: 0px;
+}
+
+.nav-bar h1 {
+    font-size: 45px;
+    margin-top: 15px;
+    margin-left: 75px;
+    color: rgb(46,120,95);
+    font-family: 'Libre Baskerville', serif;}
+
+.nav-bar a {
+    position: absolute;
+    top: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 35px;
+    color:#333333;
+}
+
+.nav-bar a span {
+    font-weight: 500;
+}    
+
+.nav-bar a span:hover {
+    color: #DB3C2E;
+}

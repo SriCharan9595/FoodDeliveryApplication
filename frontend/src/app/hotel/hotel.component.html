@@ -1,0 +1,35 @@
+<div class="bg">
+    <img style="height:920px; width:1920px;" src="../../assets/img/plainbg.jpg">
+  </div>
+  
+  <div class="nav-bar">
+    <h1>RESTAURANTS</h1>
+  
+    <a routerLink="/category" routerLinkActive="active" style="margin-left:1410px">
+      <span>CATEGORY</span>
+    </a>
+  
+    <a style="margin-left:1688px;" (click) = "logoutUser()">
+      <span>LOGOUT</span>
+    </a>
+  </div>
+
+
+
+<div>   
+    <div *ngFor = "let hotel of hoteldata" style="align-items:center;">
+
+        <div class="container">
+            <img [src]="hotel.hotelUrl" class="image">
+            <div class="overlay  overlayBottom">
+                <div class="content">
+                    <p>{{hotel.hotelName}}</p> <br>
+                    <form #hotel="ngForm" (ngSubmit)="hotelName(hotel.hotelName)">
+                        <input type="submit" value="SELECT" >
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,700&family=Macondo&family=Oleo+Script+Swash+Caps&display=swap');
+.bg {
+    background-color: #333333;
+}
+
+.signup-box {
+  position: absolute;
+  top: 100px;
+  margin-left: 100px;
+  width: 420px;
+  height: 675px;
+  border: 2px solid #D6D1CB;
+  color: #D6D1CB;
+  background-color: #333333;
+  border-radius: 30px;
+}
+
+.signup-box h1 {
+  padding-top: 10px;
+  margin-left: 132px;
+  font-family: 'Lora', serif;
+  font-size: 40px;
+  font-weight: 100;
+}
+
+.signup-box h4 {
+  margin-top: -10px;
+  padding-top: 5px;
+  margin-left: 78px;
+  font-family: 'Oleo Script Swash Caps', cursive;
+  font-weight: 100;
+  font-size: 22px;
+  color: rgb(46,120,95);
+}
+
+.signup-box form {
+  width: 300px;
+  margin-left: 52px;
+}
+
+.signup-box form label {
+  display: flex;
+  margin-top: 20px;
+  font-size: 22px;
+}
+
+.signup-box form input {
+  width: 100%;
+  height: 18px;
+  font-size: 20px;
+  padding: 7px;
+  border: none;
+  border: 1.5px solid gray;
+  border-radius: 6px;
+  outline: none;
+}
+
+.signup-box form input:focus {
+  border: 2.5px solid rgb(46,120,95);
+}
+
+.signup-box form input[type="submit"] {
+  width: 200px;
+  margin-top: 34px; 
+  margin-left: 55px; 
+  height: 45px;
+  border-radius: 50px;
+  border: 1.5px solid #A8CFF0;
+  background-color:#DB3C2E;
+  color: white;
+  font-size: 26px;
+}
+
+.signup-box form input[type="submit"]:hover {
+  background-color: transparent;
+  border: 2px solid rgb(52, 120, 39);
+  color: #D6D1CB;
+  cursor: pointer;
+}
+
+.para-2 {
+  position: absolute;
+  top: 790px;
+  margin-left: 138px;
+  color: #D6D1CB;
+  font-size: 23px;
+}
+
+.para-2 a {
+  color: rgb(46,120,95);
+  font-size: 23px;
+}
+

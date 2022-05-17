@@ -1,0 +1,83 @@
+<div class="bg">
+    <img style="height: 920px; max-width:100%;" src="../../assets/img/plainbg.jpg">
+</div>
+
+<div class="nav-bar">
+    <h1>MENU LIST</h1>
+
+    <a routerLink="/category" routerLinkActive="active" style="margin-left:1042px;">
+        <span>CATEGORY</span>
+    </a>
+
+    <a routerLink="/hotel" routerLinkActive="active" style="margin-left:1333px">
+        <span>RESTAURANTS</span>
+    </a>
+
+    <a style="margin-left:1688px;" (click) = "logoutUser()">
+        <span>LOGOUT</span>
+    </a>
+</div>
+
+
+<div class="table-box">
+
+    <div class="table-row table-head">
+        <div class="table-cell first-cell">
+            <p>MENU&ensp;ITEM</p>
+        </div>
+
+        <div class="table-cell" style="width:15%;">
+            <p>MENU&ensp;PRICE</p>
+        </div>
+
+        <div class="table-cell last-cell">
+            <p>ADD&ensp;TO&ensp;CART</p>
+        </div>
+    </div>
+
+
+    <div class="table-row" *ngFor="let menu of menudata">
+        <div class="table-cell first-cell">
+            <p>{{menu.hotelMenu}}</p>
+        </div>
+
+        <div class="table-cell" style="width:15%">
+            <p>{{menu.menuPrice}}</p>
+        </div>
+
+        <div class="table-cell last-cell">
+            <form #name="ngForm" (ngSubmit)="addFood({dish:menu.hotelMenu, price:menu.menuPrice})">
+                <input type="submit" value="ADD">
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div class="cart-box">
+    <div style="height:90%;overflow-y:scroll;">
+        <h1>CART</h1>
+        <h2>AMOUNT:&ensp;&#8377;{{totalPrice}}</h2>
+        <div *ngFor="let food of cart; let ind = index">
+            <div class="table-row">
+                <div class="table-cell first-cell">
+                    <p>{{food.dish}}</p>
+                </div>
+
+                <div class="table-cell">
+                    <p>{{food.price}}</p>
+                </div>
+
+                <div class="table-cell last-cell">
+                    <form #name="ngForm" (ngSubmit)="removeDish(ind)">
+                        <input type="submit" value="DEL">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div  class="order-now">
+        <a  routerLink="/getBill" routerLinkActive="active"><button>ORDER NOW !</button></a>
+    </div>
+
+</div>

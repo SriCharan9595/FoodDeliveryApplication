@@ -1,0 +1,38 @@
+
+<div class="bg">
+  <img style="height:920px; width:1920px;" src="../../assets/img/bg.jpg">
+</div>
+
+<div class="signup-box">
+      <h1>Sign Up</h1>
+      <h4>It's free and only takes a minute</h4>
+      
+      <form #register="ngForm" (ngSubmit)="RegisterData(register.value)">
+        <label>User Name</label>
+        <input type="text" ngModel required name="username" #username="ngModel" placeholder="" />
+        <span *ngIf="username.invalid && username.touched" style ="color: #DB3C2E">User Name must be in alphabets</span>
+
+        <label>Phone No</label>
+        <input type="text" ngModel required name="phoneNo" #phoneNo="ngModel" maxlength="10" minlength="10" placeholder="" />
+        <span *ngIf="phoneNo.invalid && phoneNo.touched" style ="color: #DB3C2E">Phone Number must be 10 digits</span>
+
+        <label>Email</label>
+        <input type="email" ngModel required name="mailId" #mailId="ngModel" pattern="[a-zA-z.@]+$" placeholder="" />
+        <span *ngIf="mailId.invalid && mailId.touched" style ="color: #DB3C2E">Improper Email</span>
+
+        <label>Password</label>
+        <input type="password" ngModel required name="password1" #password1="ngModel" minlength="8" maxlength="16" placeholder="" />
+        <span *ngIf="password1.invalid && password1.touched" style ="color: #DB3C2E">Password must be in range of 8-16 characters</span>
+
+        <label>Confirm Password</label>
+        <input type="password" ngModel required name="password2" #password2="ngModel" minlength="8" maxlength="16" placeholder="" >
+        <span *ngIf="password2.invalid && password2.touched" style ="color: #DB3C2E">Passwords must be same</span>
+
+        <input type="submit" [disabled]="!register.valid" value="Submit">
+      </form>
+
+    </div>
+
+    <p class="para-2">
+      Already have an account? <a routerLink="/login" routerLinkActive="active">Login here</a>
+    </p>

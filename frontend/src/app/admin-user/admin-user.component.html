@@ -1,0 +1,72 @@
+<div class="bg">
+    <img style="height:920px; width:1920px;" src="../../assets/img/plainbg.jpg">
+</div>
+
+<div class="nav-bar">
+    <h1>ADMIN</h1>
+
+    <a routerLink="/getFoodies" routerLinkActive="active" style="margin-left:1042px;">
+        <span style="color: #DB3C2E;">USER DATA</span>
+    </a>
+
+    <a routerLink="/getHotel" routerLinkActive="active" style="margin-left:1333px">
+        <span>RESTAURANTS</span>
+    </a>
+
+    <a style="margin-left:1688px;" (click)="logoutUser()">
+        <span>LOGOUT</span>
+    </a>
+</div>
+
+<div class="table-box">
+
+    <div class="table-row table-head">
+        <div class="table-cell first-cell" style="width:10%;">
+            <p>Foodie ID</p>
+        </div>
+
+        <div class="table-cell" style="width:15%;">
+            <p>User Name</p>
+        </div>
+
+        <div class="table-cell" style="width:20%;">
+            <p>Phone No</p>
+        </div>
+
+        <div class="table-cell" style="width:25%;">
+            <p>Email</p>
+        </div>
+
+        <div class="table-cell last-cell" style="width:15%;">
+            <p>Delete</p>
+        </div>
+    </div>
+
+    <div style="overflow-y: scroll;height: 68vh;">
+
+        <div class="table-row" *ngFor="let foodie of foodieData">
+            <div class="table-cell first-cell" style="width:10%;">
+                <p>{{foodie.id}}</p>
+            </div>
+
+            <div class="table-cell" style="width:15%;">
+                <p>{{foodie.username}}</p>
+            </div>
+
+            <div class="table-cell" style="width:20%;">
+                <p>{{foodie.phoneNo}}</p>
+            </div>
+
+            <div class="table-cell" style="width:25%;">
+                <p>{{foodie.mailId}}</p>
+            </div>
+
+            <div class="table-cell last-cell" style="width:15%;">
+                <form #name="ngForm" (ngSubmit)="deleteFoodie(foodie.id)">
+                    <input type="submit" value="REMOVE">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

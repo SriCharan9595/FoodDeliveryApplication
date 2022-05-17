@@ -1,0 +1,25 @@
+
+<div class="bg">
+    <img style="height:920px; width:1920px;" src="../../assets/img/bg.jpg">
+  </div>
+  
+  <div class="address-box">
+        <h1>Delivery Address</h1>
+        <h4>It's free and only takes a minute</h4>
+        
+        <form #address="ngForm" (ngSubmit)="AddressData(address.value)">
+          <label>Door No</label>
+          <input type="text" ngModel required name="doorNo" placeholder="" />
+          <label>Street</label>
+          <input type="text" ngModel required name="street" placeholder="" />
+          <label>Area</label>
+          <input type="text" ngModel required name="area" placeholder="" />
+          <label>District</label>
+          <input type="text" ngModel required name="district" placeholder="" />
+          <label>Pincode</label>
+          <input type="text" ngModel required name="pincode" placeholder="" />
+  
+          <input type="submit" [disabled]="!address.valid" value="ADD">
+        </form>
+  
+      </div>
