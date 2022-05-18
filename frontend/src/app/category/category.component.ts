@@ -1,3 +1,4 @@
+import { RegularService } from './../core/services/regular.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,7 +15,7 @@ export class CategoryComponent implements OnInit {
   constructor(
     private http:HttpClient,
     private router:Router,
-    private tokenService: TokenService
+    private regularService: RegularService
     ) { }
 
   category(category:any) {
@@ -23,9 +24,8 @@ export class CategoryComponent implements OnInit {
     this.router.navigate(['hotel'])
   }
 
-  logoutUser() {
-    localStorage.clear()
-    this.router.navigate([''])
+  logout(){
+    this.regularService.logoutUser()
   }
 
   ngOnInit(): void {

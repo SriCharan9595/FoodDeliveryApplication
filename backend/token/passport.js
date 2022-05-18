@@ -33,6 +33,5 @@ passport.use('refreshToken', new JWTStrategy(authBody, async(jwtPayload,done)=> 
     }
 ))
 
-
 module.exports = passport
     

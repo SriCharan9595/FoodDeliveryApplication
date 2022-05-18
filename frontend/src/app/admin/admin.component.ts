@@ -1,3 +1,4 @@
+import { RegularService } from './../core/services/regular.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,11 +9,13 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor (
+    private router: Router,
+    private regularService: RegularService
+    ) { }
 
-  logoutUser() {
-    localStorage.clear()
-    this.router.navigate([''])
+  logout(){
+    this.regularService.logoutUser()
   }
 
   ngOnInit(): void {

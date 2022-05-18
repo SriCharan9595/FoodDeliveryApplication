@@ -13,5 +13,13 @@ export class TokenService {
     localStorage.setItem("authToken",authToken)
   }
 
+  getRefreshToken() {
+    return localStorage.getItem("refreshToken")
+  }
+
+  saveRefreshToken(refreshToken:any) {
+    localStorage.setItem("refreshToken",refreshToken)
+  }
+
   constructor() { }
 }

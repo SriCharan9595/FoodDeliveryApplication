@@ -16,7 +16,7 @@ export class AdminGuard implements CanActivate {
     if(this.guard.IsLoggedIn() && Role == "ADMIN") {
       return true;
     }
-    else 
+
     alert("You don't have admin rights")
     this.router.navigate(['login']);
     return false;

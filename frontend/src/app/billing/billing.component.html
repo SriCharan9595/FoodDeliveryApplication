@@ -5,7 +5,7 @@
 <div class="nav-bar">
     <h1>INVOICE</h1>
 
-    <a style="margin-left:1688px;" (click)="logoutUser()">
+    <a style="margin-left:1688px;" (click)="logout()">
         <span>LOGOUT</span>
     </a>
 </div>
@@ -29,23 +29,23 @@
 
     <h4 style="top:290px;">Total Cost ----------- &#8377;{{totalPrice}}</h4>
     <h5 style="top:325px;">Delivery Charges --- &#8377;50</h5>
-    <h6 style="top:390px;">Final Bill ------------ &#8377;</h6>
+    <h6 style="top:390px;">Final Bill ------------ &#8377;{{finalBill}}</h6>
 
     
-    <button>&emsp;PROCEED TO PAY&emsp;</button>
+    <button type="button" (click)="foodieOrder()">&emsp;PROCEED TO PAY&emsp;</button>
     
 
     <form #address="ngForm" (ngSubmit)="AddressData(address.value)">
         <label>Door No</label>
-        <input type="text" ngModel required name="doorNo" placeholder="" />
+        <input class="delAdd" type="text" ngModel required name="doorNo" placeholder="{{doorNo}}" />
         <label>Street</label>
-        <input type="text" ngModel required name="street" placeholder="" />
+        <input class="delAdd" type="text" ngModel required name="street" placeholder="{{street}}"  />
         <label>Area</label>
-        <input type="text" ngModel required name="area" placeholder="" />
+        <input class="delAdd" type="text" ngModel required name="area" placeholder="{{area}}" />
         <label>District</label>
-        <input type="text" ngModel required name="district" placeholder="" />
+        <input class="delAdd" type="text" ngModel required name="district" placeholder="{{district}}" />
         <label>Pincode</label>
-        <input type="text" ngModel required name="pincode" placeholder="" />
+        <input class="delAdd" type="text" ngModel required name="pincode" placeholder="{{pincode}}" />
 
         <input type="submit" [disabled]="!address.valid" value="EDIT">
     </form>

@@ -1,3 +1,4 @@
+import { RegularService } from './../core/services/regular.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -23,7 +24,7 @@ export class MenuComponent implements OnInit {
   constructor(
     private httpClient: HttpClient,
     private router: Router,
-    private tokenService: TokenService
+    private regularService: RegularService
   ) { }
 
 
@@ -34,14 +35,17 @@ export class MenuComponent implements OnInit {
   totalPrice: number = parseInt(localStorage.getItem("totalPrice") || "0");
 
   addFood(foodData: any) {
+
     this.cart.push(foodData)
     console.log(foodData)
     console.log(this.totalPrice)
+
     if (localStorage.getItem("cartItem") == null) {
       localStorage.setItem("cartItem", `{"dishName":"${foodData.dish}","dishPrice":"${foodData.price}"}`)
       this.totalPrice += parseInt(foodData.price)
       localStorage.setItem("totalPrice", "" + this.totalPrice)
-    } else {
+    }
+    else {
       localStorage.setItem("cartItem", localStorage.getItem("cartItem") + "," + `{"dishName":"${foodData.dish}","dishPrice":"${foodData.price}"}`)
       this.totalPrice += parseInt(foodData.price)
       localStorage.setItem("totalPrice", "" + this.totalPrice)
@@ -63,21 +67,22 @@ export class MenuComponent implements OnInit {
     console.log(removedDish[0].price)
 
     allObject.forEach((element: any) => {
+
       if (localStorage.getItem("cartItem") == null) {
         localStorage.setItem("cartItem", `{"dishName":"${element.dish}","dishPrice":"${element.price}"}`)
-      } else {
+      } 
+      
+      else {
         localStorage.setItem("cartItem", localStorage.getItem("cartItem") + "," + `{"dishName":"${element.dish}","dishPrice":"${element.price}"}`)
       }
 
     });
-
 
     this.totalPrice -= parseInt(removedDish[0].price)
 
     localStorage.setItem("totalPrice", "" + this.totalPrice)
 
   }
-
 
 
   ngOnInit(): void {
@@ -94,9 +99,8 @@ export class MenuComponent implements OnInit {
       });
   }
 
-  logoutUser() {
-    localStorage.clear()
-    this.router.navigate([''])
+  logout() {
+    this.regularService.logoutUser()
   }
 
 }

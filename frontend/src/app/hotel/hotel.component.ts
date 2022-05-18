@@ -1,3 +1,4 @@
+import { RegularService } from './../core/services/regular.service';
 import { TokenService } from '../core/services/token.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -28,7 +29,7 @@ export class HotelComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private tokenService: TokenService
+    private regularService: RegularService
   ) { }
 
   ngOnInit() {
@@ -51,9 +52,7 @@ export class HotelComponent implements OnInit {
     );
   }
 
-  logoutUser() {
-    localStorage.clear()
-    this.router.navigate([''])
+  logout(){
+    this.regularService.logoutUser()
   }
-
 }

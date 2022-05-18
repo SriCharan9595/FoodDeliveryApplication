@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem("username", "" + response.username)
               localStorage.setItem("phoneNo", "" + response.phoneNo)
               localStorage.setItem("mailId", "" + response.mailId)
+              localStorage.setItem("foodieDetails",""+response.username+","+response.phoneNo)
 
               this.http.get<any>('http://localhost:9000/findAddress/' + localStorage.getItem('logFoodieID')).subscribe(
                 response => {
@@ -57,7 +58,8 @@ export class LoginComponent implements OnInit {
           );
 
           localStorage.setItem("Role", "USER")
-          this.tokenService.saveAuthToken(res.accessToken)
+          this.tokenService.saveAuthToken(res.authToken)
+          this.tokenService.saveRefreshToken(res.refreshToken)
           this.router.navigate(['category'])
 
         },
@@ -75,7 +77,8 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (res: any) => {
           localStorage.setItem("Role", "ADMIN")
-          this.tokenService.saveAuthToken(res.accessToken)
+          this.tokenService.saveAuthToken(res.authToken)
+          this.tokenService.saveRefreshToken(res.refreshToken)
           this.router.navigate(['admin'])
         },
         (err) => {
