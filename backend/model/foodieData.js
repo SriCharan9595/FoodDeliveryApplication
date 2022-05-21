@@ -1,8 +1,13 @@
 const {DataTypes} = require('sequelize');
 const sqlconn = require('../config/sqldb');
 
-const foodieData = sqlconn.define('foodieData',{
+const foodieData = sqlconn.define('foodiedata',{
     
+    id: {
+        type: DataTypes.STRING,
+        notEmpty: true,
+        primaryKey: true
+    },
     username: {
         type: DataTypes.STRING,
         notEmpty: true

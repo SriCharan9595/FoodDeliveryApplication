@@ -1,7 +1,7 @@
 const {DataTypes} = require('sequelize');
 const sqlconn = require('../config/sqldb')
 
-const hotelData = sqlconn.define('hotelData',{
+const hotelData = sqlconn.define('hoteldata',{
     
     category:{
         type: DataTypes.STRING,

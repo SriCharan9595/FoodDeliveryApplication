@@ -1,9 +1,9 @@
 
 <div class="bg">
 	<img style="height:920px; width:1920px;" src="../../assets/img/bg.jpg">
-  </div>
+</div>
   
-  <div class="user-box">
+  <!-- <div class="user-box">
 		<h1>USER</h1>
 		<h4>Spend a minute here to stop your starve</h4>
 		
@@ -43,4 +43,62 @@
 		  <input type="submit" [disabled]="!admin.valid" value="Submit">
 		</form>
   
-	  </div>	  
+	  </div>	   -->
+
+<div *ngIf="!isUser">	  
+	<p class="user-text">&ensp;&nbsp;If You're a User, Login Here !</p>
+	<button class="user-btn" (click)="openUser()">USER</button>
+</div>
+
+<div *ngIf="isUser">
+	<p class="admin-text">If You're an Admin, Login Here !</p>
+	<button class="admin-btn" (click)="openAdmin()">ADMIN</button>
+</div>
+
+
+
+	<div class="user-box" id="user-form">
+		<h1>USER</h1>
+		<h4>Spend a minute here to stop your starve</h4>
+		
+		<form #user="ngForm" (ngSubmit)="UserData(user.value)">
+		  <label>Email</label>
+		  <input type="text" ngModel #mailId="ngModel" required pattern="[a-zA-z.@]+$" name="mailId" placeholder="">
+		  <span *ngIf="mailId.invalid && mailId.touched" style ="color: #DB3C2E">Invalid input</span>
+		  <br>
+		  <label>Password</label>
+		  <input type="password" ngModel #password="ngModel" required name="password" minlength="8" maxlength="16" placeholder="">
+		  <span *ngIf="password.invalid && password.touched" style ="color: #DB3C2E">Invalid input</span>
+		  <br>	
+  
+		  <input type="submit" [disabled]="!user.valid && user.touched" value="Submit">
+		</form>
+
+		<p class="para-2">
+			If you're a new user? <a routerLink="/register" routerLinkActive="active">Register here</a>
+		</p>
+	</div>	  
+
+
+	<div class="admin-box" id="admin-form">
+		<h1>ADMIN</h1>
+		<h4>Bring success with the rights you have</h4>
+		
+		<form #admin="ngForm" (ngSubmit)="AdminData(admin.value)">
+		  <label>Email</label>
+		  <input type="text" ngModel required name="mailId" #adminMail="ngModel" pattern="[a-zA-z.@]+$" placeholder="">
+		  <span *ngIf="adminMail.invalid && adminMail.touched" style ="color: #DB3C2E">Improper Email</span>
+		  <br>	
+		  <label>Password</label>
+		  <input type="password" ngModel required name="password" #adminPassword="ngModel" minlength="8" maxlength="16" placeholder="">
+		  <span *ngIf="adminPassword.invalid && adminPassword.touched" style ="color: #DB3C2E">Password must be in range of 8-16 characters</span>
+		  <br>
+  
+		  <input type="submit" [disabled]="!admin.valid" value="Submit">
+		</form>
+  
+	  </div>
+
+		
+
+

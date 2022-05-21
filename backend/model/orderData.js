@@ -1,7 +1,7 @@
 const {DataTypes} = require('sequelize');
 const sqlconn = require('../config/sqldb')
 
-const orderData = sqlconn.define('orderData',{
+const orderData = sqlconn.define('orderdata',{
     
     foodieID:{
         type: DataTypes.INTEGER,

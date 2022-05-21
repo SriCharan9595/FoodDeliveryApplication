@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Macondo&family=Oleo+Script+Swash+Caps&display=swap');
-.bg {
+* {
     background-color: #333333;
 }
 
 .nav-bar {
     position: absolute;
+    background-color: #D6D1CB;
     height: 83px;
     width: 100%;
-    background-color: #D6D1CB;
     top: 0px;
 }
 
 .nav-bar h1 {
     font-size: 45px;
     margin-top: 15px;
+    background-color: #D6D1CB;
     margin-left: 75px;
     color: rgb(46,120,95);
     font-family: 'Libre Baskerville', serif;}
@@ -21,6 +22,7 @@
 .nav-bar a {
     position: absolute;
     top: 24px;
+    background-color: #D6D1CB;
     cursor: pointer;
     text-decoration: none;
     font-size: 35px;
@@ -29,13 +31,14 @@
 
 .nav-bar a span {
     font-weight: 500;
+    background-color: #D6D1CB;
 }    
 
 .nav-bar a span:hover {
     color: #DB3C2E;
 }
 
-.container {
+/* .container {
     position: absolute;
     width: 400px;
     height: 250px;
@@ -64,7 +67,6 @@
     width: 200px;
     height: 35px;
     margin-top: 20.5%;
-    /* align-items: center; */
     margin-left: 1%;
     border: none;
     height: 45px;
@@ -108,4 +110,89 @@
     margin-top:-15%;
     font-size: 30px;
 }
+ */
 
+
+.hotel .box-container {
+    display: grid;
+    padding-top: 150px;
+    padding-right: 0px;
+    width: 1750px;
+    grid-template-columns: auto auto;
+    gap: 60px;
+    font-family: 'Dosis', sans-serif;
+}
+
+ .hotel .box-container img{
+  float:left;
+  border-radius: 40px;
+  width: 450px;
+  height: 293px;
+}
+
+.hotel .box-container .box {
+    
+    background: #D6D1CB;
+    margin-left: 20px;
+    border-radius: 60px;
+    padding: 30px 30px 30px 30px;
+    border: 2px solid rgb(46,120,95);
+}
+
+/* .content, .content p {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+}
+
+.content input[type="submit"] {
+    width: 200px;
+    height: 35px;
+    margin-top: 20.5%;
+    margin-left: 1%;
+    border: none;
+    height: 45px;
+    border-radius: 50px;
+    border: 1.5px solid #A8CFF0;
+    background-color:#ED1C24;
+    color: white;
+    font-size: 18px;
+  }
+
+  .content input[type="submit"]:hover {
+    color: black;
+    background-color: #ffff;
+    border-color: #ED1C24;
+  }
+
+.overlay {
+    position: absolute;
+    opacity: 0;
+    transition:all .3s ease;
+    background-color: #008cba;
+    border-radius: 10%;
+}
+.box:hover .overlay{
+    opacity: 0.8;
+}
+
+.overlayBottom{
+    width: 100%;
+    height: 0;
+    bottom:0;
+    left:0;
+    background-color: #8f797d;
+}
+.box:hover .overlayBottom {
+    height: 100%;
+}
+
+.content p {
+    text-align:justify;
+    margin-top:-15%;
+    font-size: 30px;
+} */

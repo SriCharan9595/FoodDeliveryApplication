@@ -37,8 +37,8 @@ export class MenuComponent implements OnInit {
   addFood(foodData: any) {
 
     this.cart.push(foodData)
-    console.log(foodData)
-    console.log(this.totalPrice)
+    // console.log(foodData)
+    // console.log(this.totalPrice)
 
     if (localStorage.getItem("cartItem") == null) {
       localStorage.setItem("cartItem", `{"dishName":"${foodData.dish}","dishPrice":"${foodData.price}"}`)
@@ -50,13 +50,14 @@ export class MenuComponent implements OnInit {
       this.totalPrice += parseInt(foodData.price)
       localStorage.setItem("totalPrice", "" + this.totalPrice)
     }
-
+    
   }
 
 
   removeDish(dishIndex: any) {
 
     let allObject = JSON.parse('[' + localStorage.getItem("cartItem") + ']');//[{}]
+    // console.log(allObject)
 
     allObject.splice(dishIndex, 1);
 
@@ -64,10 +65,10 @@ export class MenuComponent implements OnInit {
 
     const removedDish = this.cart.splice(dishIndex, 1);
 
-    console.log(removedDish[0].price)
+    // console.log(removedDish[0])
 
     allObject.forEach((element: any) => {
-
+      console.log(element)
       if (localStorage.getItem("cartItem") == null) {
         localStorage.setItem("cartItem", `{"dishName":"${element.dish}","dishPrice":"${element.price}"}`)
       } 

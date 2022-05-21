@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class hotelData {
   constructor(
+    public category: string,
     public hotelName: string,
     public area: string,
     public rating: string,

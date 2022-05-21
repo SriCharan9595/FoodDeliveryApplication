@@ -1,7 +1,7 @@
 const {DataTypes} = require('sequelize');
 const sqlconn = require('../config/sqldb');
 
-const adminData = sqlconn.define('adminData',{
+const adminData = sqlconn.define('admindata',{
     
     mailId: {
         type: DataTypes.STRING,

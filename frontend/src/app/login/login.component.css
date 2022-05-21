@@ -1,29 +1,92 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,700&family=Macondo&family=Oleo+Script+Swash+Caps&display=swap');
+
 .bg {
     background-color: #333333;
 }
 
-.user-box {
+.user-text {
   position: absolute;
-  top: 40px;
-  margin-left: 100px;
+  font-size: 36px;
+  color: #D6D1CB;
+  left: 4.35%;
+  top: 3%;
+}
+
+.user-btn, .admin-btn {
+  position: absolute;
+  font-size: 18px;
+  height: 40px;
+  width: 120px;
+  top: 14.6%;
+  left: 13.6%;
+  border-radius: 50px;
+  color: #D6D1CB;
+  background-color: #DB3C2E;
+  border: 1px solid #D6D1CB;
+  cursor: pointer;
+}
+
+.admin-text {
+  position: absolute;
+  font-size: 36px;
+  color: #D6D1CB;
+  left: 4.6%;
+  top: 20%;
+}
+
+.admin-btn {
+  top: 31.5%;
+  border-radius: 50px;
+  background-color: rgb(46,120,95);
+}
+
+.admin-btn:hover {
+  background-color: transparent;
+  border: 2px solid rgb(46,120,95);
+}
+
+.user-btn:hover {
+  background-color: transparent;
+  border: 2px solid #DB3C2E;
+}
+
+.user-box {
+  position: fixed;
+  top: 400px;
+  margin-left: 110px;
   width: 420px;
-  height: 440px;
+  height: 460px;
   border: 2px solid #D6D1CB;
   color: #D6D1CB;
   background-color: #333333;
   border-radius: 30px;
 }
 
-.user-box h1 {
-  padding-top: 6px;
-  margin-left: 162px;
+.admin-box {
+  display: none;
+  position: fixed;
+  top: 400px;
+  margin-left: 110px;
+  width: 420px;
+  height: 460px;
+  border: 2px solid #D6D1CB;
+  color: #D6D1CB;
+  background-color: #333333;
+  border-radius: 30px;
+}
+
+.user-box h1, .admin-box h1 {
+  margin-left: 155px;
   font-family: 'Lora', serif;
   font-size: 40px;
   font-weight: 100;
 }
 
-.user-box h4 {
+.admin-box h1 {
+  margin-left: 140px;
+}
+
+.user-box h4, .admin-box h4 {
   margin-top: -20px;
   padding-top: 5px;
   margin-left: 47px;
@@ -40,7 +103,7 @@
 
 .user-box form label, .admin-box form label{
   display: flex;
-  margin-top: 18px;
+  margin-top: 19px;
   font-size: 22px;
 }
 
@@ -71,17 +134,26 @@
   font-size: 26px;
 }
 
-.user-box form input[type="submit"]:hover, .admin-box form input[type="submit"]:hover {
+.admin-box form input[type="submit"] {
+  background-color: rgb(46,120,95);
+}
+
+.user-box form input[type="submit"]:hover {
   background-color: transparent;
-  border: 2px solid rgb(52, 120, 39);
-  color: #D6D1CB;
+  border: 2px solid #DB3C2E;
+  cursor: pointer;
+}
+
+.admin-box form input[type="submit"]:hover {
+  background-color: transparent;
+  border: 2px solid rgb(46,120,95);
   cursor: pointer;
 }
 
 .para-2 {
   position: absolute;
-  top: 415px;
-  margin-left: 152px;
+  top: 396px;
+  left: 49px;
   color: #D6D1CB;
   font-size: 23px;
 }
@@ -89,25 +161,6 @@
 .para-2 a {
   color: rgb(46,120,95);
   font-size: 23px;
-}
-
-.admin-box {
-	position: absolute;
-	top: 528px;
-	margin-left: 100px;
-	width: 420px;
-	height: 350px;
-	border: 2px solid #D6D1CB;
-	color: #D6D1CB;
-	background-color: #333333;
-	border-radius: 30px;
-}
-
-.admin-box h1 {
-	padding-top: 5px;
-	margin-left: 142px;
-  color: rgb(46,120,95);
-	font-family: 'Lora', serif;
-	font-size: 40px;
-	font-weight: 100;
+  margin-top: 1px;
+  margin-left: 2px;
 }

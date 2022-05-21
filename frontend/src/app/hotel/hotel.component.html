@@ -1,7 +1,8 @@
-<div class="bg">
+
+<!-- <div class="bg">
     <img style="height:920px; width:1920px;" src="../../assets/img/plainbg.jpg">
-  </div>
-  
+  </div> -->
+
   <div class="nav-bar">
     <h1>RESTAURANTS</h1>
   
@@ -14,8 +15,8 @@
     </a>
   </div>
 
-<div>   
-    <div *ngFor = "let hotel of hoteldata" style="align-items:center;">
+<!-- <div class="hotel">
+    <div *ngFor = "let hotel of hoteldata" style="align-items:center; margin-left: 10%;">
 
         <div class="container">
             <img [src]="hotel.hotelUrl" class="image">
@@ -30,4 +31,22 @@
         </div>
 
     </div>
+</div> -->
+
+
+  <div class="hotel">
+  <div class="box-container">
+      <div class="box" *ngFor="let hotel of hoteldata" >
+           <img  [src]="hotel.hotelUrl">
+           <h3>{{hotel.hotelName}}</h3>
+           <h5>{{hotel.area}}</h5>
+           <p>Rs{{hotel.category}}</p> -->
+          
+            <form #hotel="ngForm" (ngSubmit)="hotelName(hotel.hotelName)">
+              <input type="submit" value="SELECT" class="btn">
+          </form>
+            
+      </div>
+  </div>
 </div>
+

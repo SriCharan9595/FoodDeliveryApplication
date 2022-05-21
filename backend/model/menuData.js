@@ -1,7 +1,7 @@
 const {DataTypes} = require('sequelize');
 const sqlconn = require('../config/sqldb')
 
-const menuData = sqlconn.define('menuData',{
+const menuData = sqlconn.define('menudata',{
     
     category:{
         type: DataTypes.STRING,
