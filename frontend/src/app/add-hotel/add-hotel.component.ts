@@ -12,8 +12,7 @@ export class AddHotelComponent implements OnInit {
 
   constructor(
     private http:HttpClient,
-    private router:Router,
-    private globalUrl: GlobalUrl
+    private router:Router
     ) { }
 
   Category = [
@@ -29,7 +28,7 @@ export class AddHotelComponent implements OnInit {
 
   AddHotelData(data:any) {
     console.log(data)
-    this.http.post(this.globalUrl+"/admin/addHotel",{category:data.category, hotelName:data.hotelName,
+    this.http.post(GlobalUrl.url+"/admin/addHotel",{category:data.category, hotelName:data.hotelName,
         area:data.area, rating:data.rating, hotelUrl:data.hotelUrl})
         .subscribe(
           (res:any)=>{

@@ -26,7 +26,6 @@ export class MenuComponent implements OnInit {
     private httpClient: HttpClient,
     private router: Router,
     private regularService: RegularService,
-    private globalUrl: GlobalUrl
   ) { }
 
 
@@ -95,7 +94,7 @@ export class MenuComponent implements OnInit {
   getMenuData() {
     const category = localStorage.getItem("category")
     const hotelName = localStorage.getItem("hotelName")
-    this.httpClient.get<any>(this.globalUrl+"/search/" + category + "/" + hotelName).subscribe(
+    this.httpClient.get<any>(GlobalUrl.url+"/search/" + category + "/" + hotelName).subscribe(
       response => {
         console.log(response);
         this.menudata = response;

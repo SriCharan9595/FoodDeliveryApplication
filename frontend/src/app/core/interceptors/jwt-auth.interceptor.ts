@@ -23,8 +23,7 @@ export class JwtAuthInterceptor implements HttpInterceptor {
   constructor(
     private http: HttpClient,
     private tokenService: TokenService,
-    private regularService: RegularService,
-    private globalUrl: GlobalUrl
+    private regularService: RegularService
   ) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
@@ -52,7 +51,7 @@ export class JwtAuthInterceptor implements HttpInterceptor {
       if (err && err.status == 401 && !this.refreshed) {
         this.refreshed = true;
         this.refreshRequest = true;
-        return this.http.post(this.globalUrl+'/token', "").pipe(
+        return this.http.post(GlobalUrl.url+'/token', "").pipe(
           switchMap((res: any) => {
             this.tokenService.saveAuthToken(res.authToken)
             this.refreshed = false

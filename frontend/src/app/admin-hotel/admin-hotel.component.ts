@@ -27,7 +27,6 @@ export class AdminHotelComponent implements OnInit {
     private httpClient: HttpClient,
     private router: Router,
     private regularService: RegularService,
-    private globalUrl: GlobalUrl
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +34,7 @@ export class AdminHotelComponent implements OnInit {
   }
 
   deleteHotel(id: any) {
-    this.httpClient.get<any>(this.globalUrl+"/admin/deleteHotel/" + id)
+    this.httpClient.get<any>(GlobalUrl.url+"/admin/deleteHotel/" + id)
       .subscribe(
         res => {
           if (res.status === 200) {
@@ -46,7 +45,7 @@ export class AdminHotelComponent implements OnInit {
   }
 
   getHotelData() {
-    this.httpClient.get<any>(this.globalUrl+"/admin/getHotel")
+    this.httpClient.get<any>(GlobalUrl.url+"/admin/getHotel")
       .subscribe(
         response => {
           console.log(response);

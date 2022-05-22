@@ -26,8 +26,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private tokenService: TokenService,
-    private globalUrl: GlobalUrl
+    private tokenService: TokenService
   ) { }
 
   isUser = true;
@@ -55,11 +54,11 @@ export class LoginComponent implements OnInit {
   UserData(data: any) {
     console.log(data)
 
-    this.http.post(this.globalUrl+"/login", { mailId: data.mailId, password: data.password })
+    this.http.post(GlobalUrl.url+"/login", { mailId: data.mailId, password: data.password })
       .subscribe(
         (res: any) => {
 
-          this.http.get<any>(this.globalUrl+'/findFoodie/' + data.mailId).subscribe(
+          this.http.get<any>(GlobalUrl.url+'/findFoodie/' + data.mailId).subscribe(
             response => {
               localStorage.setItem("logFoodieID", "" + response.id)
               localStorage.setItem("username", "" + response.username)
@@ -67,7 +66,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem("mailId", "" + response.mailId)
               localStorage.setItem("foodieDetails",""+response.username+","+response.phoneNo)
 
-              this.http.get<any>(this.globalUrl+'/findAddress/' + localStorage.getItem('logFoodieID')).subscribe(
+              this.http.get<any>(GlobalUrl.url+'/findAddress/' + localStorage.getItem('logFoodieID')).subscribe(
                 response => {
                   console.log(response)
                   localStorage.setItem("doorNo", "" + response.doorNo)
@@ -97,7 +96,7 @@ export class LoginComponent implements OnInit {
 
   AdminData(data: any) {
     console.log(data)
-    this.http.post(this.globalUrl+"/admin/login", { mailId: data.mailId, password: data.password })
+    this.http.post(GlobalUrl.url+"/admin/login", { mailId: data.mailId, password: data.password })
       .subscribe(
         (res: any) => {
           localStorage.setItem("Role", "ADMIN")

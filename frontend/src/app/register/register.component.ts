@@ -17,16 +17,15 @@ export class RegisterComponent implements OnInit {
   constructor(
     private http:HttpClient,
     private router:Router,
-    private globalUrl: GlobalUrl
     ) { }
 
   RegisterData(data:any) {
     console.log(data)
-    this.http.post(this.globalUrl+"/register",{username:data.username,phoneNo:data.phoneNo,mailId:data.mailId,password:data.password1})
+    this.http.post(GlobalUrl.url+"/register",{username:data.username,phoneNo:data.phoneNo,mailId:data.mailId,password:data.password1})
         .subscribe(
           (res:any)=>{
 
-            this.http.get<any>(this.globalUrl+'/findFoodie/' + data.mailId).subscribe(
+            this.http.get<any>(GlobalUrl.url+'/findFoodie/' + data.mailId).subscribe(
               response => {
                 localStorage.setItem("regFoodieID",""+response.id)
               }

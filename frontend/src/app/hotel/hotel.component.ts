@@ -29,8 +29,7 @@ export class HotelComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private regularService: RegularService,
-    private globalUrl: GlobalUrl
+    private regularService: RegularService
   ) { }
 
   ngOnInit() {
@@ -45,7 +44,7 @@ export class HotelComponent implements OnInit {
 
   getHotelData() {
     const category = localStorage.getItem("category")
-    this.http.get<any>(this.globalUrl+'/hotelData/' + category).subscribe(
+    this.http.get<any>(GlobalUrl.url+'/hotelData/' + category).subscribe(
       response => {
         console.log(response);
         this.hoteldata = response;

@@ -27,8 +27,7 @@ export class AdminUserComponent implements OnInit {
     private httpClient: HttpClient,
     private router: Router,
     private tokenService: TokenService,
-    private regularService:RegularService,
-    private globalUrl: GlobalUrl
+    private regularService:RegularService
   ) { }
 
   ngOnInit(): void {
@@ -36,7 +35,7 @@ export class AdminUserComponent implements OnInit {
   }
 
   deleteFoodie(id: any) {
-    this.httpClient.get<any>(this.globalUrl+"/admin/deleteFoodie/" + id)
+    this.httpClient.get<any>(GlobalUrl.url+"/admin/deleteFoodie/" + id)
       .subscribe(
         res => {
           if (res.status === 200) {
@@ -47,7 +46,7 @@ export class AdminUserComponent implements OnInit {
   }
 
   getFoodieData() {
-    this.httpClient.get<any>(this.globalUrl+"/admin/getFoodies")
+    this.httpClient.get<any>(GlobalUrl.url+"/admin/getFoodies")
       .subscribe(
         response => {
           console.log(response);
