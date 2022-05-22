@@ -1,3 +1,4 @@
+import { GlobalUrl } from './../global-url';
 import { RegularService } from './../core/services/regular.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -26,7 +27,8 @@ export class AdminUserComponent implements OnInit {
     private httpClient: HttpClient,
     private router: Router,
     private tokenService: TokenService,
-    private regularService:RegularService
+    private regularService:RegularService,
+    private globalUrl: GlobalUrl
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +36,7 @@ export class AdminUserComponent implements OnInit {
   }
 
   deleteFoodie(id: any) {
-    this.httpClient.get<any>("http://localhost:9000/admin/deleteFoodie/" + id)
+    this.httpClient.get<any>(this.globalUrl+"/admin/deleteFoodie/" + id)
       .subscribe(
         res => {
           if (res.status === 200) {
@@ -45,7 +47,7 @@ export class AdminUserComponent implements OnInit {
   }
 
   getFoodieData() {
-    this.httpClient.get<any>("http://localhost:9000/admin/getFoodies")
+    this.httpClient.get<any>(this.globalUrl+"/admin/getFoodies")
       .subscribe(
         response => {
           console.log(response);

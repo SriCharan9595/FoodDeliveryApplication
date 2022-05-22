@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from '../core/services/token.service';
+import { GlobalUrl } from '../global-url';
 
 export class findFoodie {
   constructor(
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private tokenService: TokenService,
+    private globalUrl: GlobalUrl
   ) { }
 
   isUser = true;
@@ -53,11 +55,11 @@ export class LoginComponent implements OnInit {
   UserData(data: any) {
     console.log(data)
 
-    this.http.post("http://localhost:9000/login", { mailId: data.mailId, password: data.password })
+    this.http.post(this.globalUrl+"/login", { mailId: data.mailId, password: data.password })
       .subscribe(
         (res: any) => {
 
-          this.http.get<any>('http://localhost:9000/findFoodie/' + data.mailId).subscribe(
+          this.http.get<any>(this.globalUrl+'/findFoodie/' + data.mailId).subscribe(
             response => {
               localStorage.setItem("logFoodieID", "" + response.id)
               localStorage.setItem("username", "" + response.username)
@@ -65,7 +67,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem("mailId", "" + response.mailId)
               localStorage.setItem("foodieDetails",""+response.username+","+response.phoneNo)
 
-              this.http.get<any>('http://localhost:9000/findAddress/' + localStorage.getItem('logFoodieID')).subscribe(
+              this.http.get<any>(this.globalUrl+'/findAddress/' + localStorage.getItem('logFoodieID')).subscribe(
                 response => {
                   console.log(response)
                   localStorage.setItem("doorNo", "" + response.doorNo)
@@ -95,7 +97,7 @@ export class LoginComponent implements OnInit {
 
   AdminData(data: any) {
     console.log(data)
-    this.http.post("http://localhost:9000/admin/login", { mailId: data.mailId, password: data.password })
+    this.http.post(this.globalUrl+"/admin/login", { mailId: data.mailId, password: data.password })
       .subscribe(
         (res: any) => {
           localStorage.setItem("Role", "ADMIN")

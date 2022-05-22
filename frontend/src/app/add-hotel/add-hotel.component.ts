@@ -1,3 +1,4 @@
+import { GlobalUrl } from './../global-url';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -9,7 +10,11 @@ import { Router } from '@angular/router';
 })
 export class AddHotelComponent implements OnInit {
 
-  constructor(private http:HttpClient,private router:Router) { }
+  constructor(
+    private http:HttpClient,
+    private router:Router,
+    private globalUrl: GlobalUrl
+    ) { }
 
   Category = [
     {category:'Breakfast'},
@@ -24,7 +29,7 @@ export class AddHotelComponent implements OnInit {
 
   AddHotelData(data:any) {
     console.log(data)
-    this.http.post("http://localhost:9000/admin/addHotel",{category:data.category, hotelName:data.hotelName,
+    this.http.post(this.globalUrl+"/admin/addHotel",{category:data.category, hotelName:data.hotelName,
         area:data.area, rating:data.rating, hotelUrl:data.hotelUrl})
         .subscribe(
           (res:any)=>{

@@ -1,8 +1,4 @@
 
-<!-- <div class="bg">
-    <img style="height:920px; width:1920px;" src="../../assets/img/plainbg.jpg">
-  </div> -->
-
   <div class="nav-bar">
     <h1>RESTAURANTS</h1>
   
@@ -15,38 +11,18 @@
     </a>
   </div>
 
-<!-- <div class="hotel">
-    <div *ngFor = "let hotel of hoteldata" style="align-items:center; margin-left: 10%;">
-
-        <div class="container">
-            <img [src]="hotel.hotelUrl" class="image">
-            <div class="overlay  overlayBottom">
-                <div class="content">
-                    <p>{{hotel.hotelName}}</p> <br>
-                    <form #hotel="ngForm" (ngSubmit)="hotelName(hotel.hotelName)">
-                        <input type="submit" value="SELECT" >
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div> -->
-
-
+  
   <div class="hotel">
   <div class="box-container">
       <div class="box" *ngFor="let hotel of hoteldata" >
-           <img  [src]="hotel.hotelUrl">
-           <h3>{{hotel.hotelName}}</h3>
-           <h5>{{hotel.area}}</h5>
-           <p>Rs{{hotel.category}}</p> -->
+           <img [src]="hotel.hotelUrl">
+           <h2>{{hotel.hotelName}}</h2>
+           <h4>{{hotel.area}}</h4>
+           <span>{{hotel.rating}}</span>
           
-            <form #hotel="ngForm" (ngSubmit)="hotelName(hotel.hotelName)">
-              <input type="submit" value="SELECT" class="btn">
-          </form>
-            
+          <button class="submit-btn" (click)="hotelName(hotel.hotelName)">SELECT</button>
       </div>
+      <div class="end"></div>
   </div>
 </div>
 

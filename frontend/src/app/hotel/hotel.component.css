@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Macondo&family=Oleo+Script+Swash+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Libre+Baskerville&family=Lora&family=Macondo&family=Oleo+Script+Swash+Caps&family=Pacifico&family=Source+Code+Pro:wght@500&display=swap');
 * {
     background-color: #333333;
 }
@@ -38,161 +38,84 @@
     color: #DB3C2E;
 }
 
-/* .container {
-    position: absolute;
-    width: 400px;
-    height: 250px;
-    margin-left:180px; 
-    top:205px;
-    display: inline-block;
-}
-
-.image {
-    width: 100%;
-    height: 100%;
-    border-radius: 10%;
-}
-
-.content, .content p {
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: sans-serif;
-}
-
-.content input[type="submit"] {
-    width: 200px;
-    height: 35px;
-    margin-top: 20.5%;
-    margin-left: 1%;
-    border: none;
-    height: 45px;
-    border-radius: 50px;
-    border: 1.5px solid #A8CFF0;
-    background-color:#ED1C24;
-    color: white;
-    font-size: 18px;
-  }
-
-  .content input[type="submit"]:hover {
-    color: black;
-    background-color: #ffff;
-    border-color: #ED1C24;
-  }
-
-.overlay {
-    position: absolute;
-    opacity: 0;
-    transition:all .3s ease;
-    background-color: #008cba;
-    border-radius: 10%;
-}
-.container:hover .overlay{
-    opacity: 0.8;
-}
-
-.overlayBottom{
-    width: 100%;
-    height: 0;
-    bottom:0;
-    left:0;
-    background-color: #8f797d;
-}
-.container:hover .overlayBottom {
-    height: 100%;
-}
-
-.content p {
-    text-align:justify;
-    margin-top:-15%;
-    font-size: 30px;
-}
- */
-
-
 .hotel .box-container {
     display: grid;
-    padding-top: 150px;
-    padding-right: 0px;
+    padding-top: 160px;
+    margin-left: 85px;
     width: 1750px;
     grid-template-columns: auto auto;
-    gap: 60px;
+    gap: 66px;
     font-family: 'Dosis', sans-serif;
 }
 
  .hotel .box-container img{
   float:left;
   border-radius: 40px;
-  width: 450px;
-  height: 293px;
+  width: 400px;
+  height: 250px;
 }
 
+/* padding: top right bottom left */
 .hotel .box-container .box {
-    
-    background: #D6D1CB;
-    margin-left: 20px;
+    background-color: #D6D1CB;
+    margin-left: 0px;
     border-radius: 60px;
-    padding: 30px 30px 30px 30px;
-    border: 2px solid rgb(46,120,95);
+    padding: 30px 30px 30px 40px; 
+    border: 3px solid rgb(46,120,95);
 }
 
-/* .content, .content p {
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: sans-serif;
+ .box h2 {
+    background-color: #D6D1CB;
+    font-size: 32px;
+    font-family: 'Pacifico', cursive;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 1px;
 }
 
-.content input[type="submit"] {
-    width: 200px;
+.box h4 {
+    margin-top: -8px;
+    background-color: #D6D1CB;
+    font-family: 'Macondo', cursive;
+    font-size: 26px;
+    text-align: center;
+}
+
+.box span {
+    position: fixed;
+    margin-left: 146px;
+    margin-top: -9px;
     height: 35px;
-    margin-top: 20.5%;
-    margin-left: 1%;
-    border: none;
+    width: 75px;
+    padding-top: 5px;
+    font-size: 24px;
+    color: #D6D1CB;
+    background-color: rgb(46,120,95);
+    border-radius: 30px;
+    text-align: center;
+}
+
+.submit-btn {
+    margin-top: 62px;
+    margin-left: 96px;
+    width: 175px;
     height: 45px;
+    background-color: #DB3C2E;
+    color: #D6D1CB;
     border-radius: 50px;
-    border: 1.5px solid #A8CFF0;
-    background-color:#ED1C24;
-    color: white;
+    cursor: pointer;
     font-size: 18px;
-  }
-
-  .content input[type="submit"]:hover {
-    color: black;
-    background-color: #ffff;
-    border-color: #ED1C24;
-  }
-
-.overlay {
-    position: absolute;
-    opacity: 0;
-    transition:all .3s ease;
-    background-color: #008cba;
-    border-radius: 10%;
-}
-.box:hover .overlay{
-    opacity: 0.8;
+    font-weight: 500;
+    border: 1.5px solid #DB3C2E;
 }
 
-.overlayBottom{
-    width: 100%;
-    height: 0;
-    bottom:0;
-    left:0;
-    background-color: #8f797d;
-}
-.box:hover .overlayBottom {
-    height: 100%;
+.submit-btn:hover {
+    border: 2.5px solid #DB3C2E;
+    background-color: transparent;
+    color: rgb(46,120,95);
+
 }
 
-.content p {
-    text-align:justify;
-    margin-top:-15%;
-    font-size: 30px;
-} */
+.end {
+    padding-bottom: 0px;
+}

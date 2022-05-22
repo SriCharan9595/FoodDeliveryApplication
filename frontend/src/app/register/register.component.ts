@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { GlobalUrl } from '../global-url';
 
 @Component({
   selector: 'app-register',
@@ -15,16 +16,17 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private http:HttpClient,
-    private router:Router
+    private router:Router,
+    private globalUrl: GlobalUrl
     ) { }
 
   RegisterData(data:any) {
     console.log(data)
-    this.http.post("http://localhost:9000/register",{username:data.username,phoneNo:data.phoneNo,mailId:data.mailId,password:data.password1})
+    this.http.post(this.globalUrl+"/register",{username:data.username,phoneNo:data.phoneNo,mailId:data.mailId,password:data.password1})
         .subscribe(
           (res:any)=>{
 
-            this.http.get<any>('http://localhost:9000/findFoodie/' + data.mailId).subscribe(
+            this.http.get<any>(this.globalUrl+'/findFoodie/' + data.mailId).subscribe(
               response => {
                 localStorage.setItem("regFoodieID",""+response.id)
               }

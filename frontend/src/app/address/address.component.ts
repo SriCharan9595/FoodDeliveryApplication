@@ -1,3 +1,4 @@
+import { GlobalUrl } from './../global-url';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -10,12 +11,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddressComponent implements OnInit {
 
-  constructor(private http:HttpClient,private router:Router) { }
+  constructor(
+    private http:HttpClient,
+    private router:Router,
+    private globalUrl: GlobalUrl
+    ) { }
 
   AddressData(data:any) {
     console.log(data)
     const foodieID = localStorage.getItem("regFoodieID")
-    this.http.post("http://localhost:9000/addAddress",{foodieID:foodieID,doorNo:data.doorNo,street:data.street,area:data.area,district:data.district,pincode:data.pincode})
+    this.http.post(this.globalUrl+"/addAddress",{foodieID:foodieID,doorNo:data.doorNo,street:data.street,area:data.area,district:data.district,pincode:data.pincode})
         .subscribe(
           (res:any)=>{
           alert("Your address added successfully")

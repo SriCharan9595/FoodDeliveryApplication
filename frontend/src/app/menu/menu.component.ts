@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from '../core/services/token.service';
+import { GlobalUrl } from '../global-url';
 
 export class menuData {
   constructor(
@@ -24,7 +25,8 @@ export class MenuComponent implements OnInit {
   constructor(
     private httpClient: HttpClient,
     private router: Router,
-    private regularService: RegularService
+    private regularService: RegularService,
+    private globalUrl: GlobalUrl
   ) { }
 
 
@@ -37,8 +39,8 @@ export class MenuComponent implements OnInit {
   addFood(foodData: any) {
 
     this.cart.push(foodData)
-    // console.log(foodData)
-    // console.log(this.totalPrice)
+    console.log(foodData)
+    console.log(this.totalPrice)
 
     if (localStorage.getItem("cartItem") == null) {
       localStorage.setItem("cartItem", `{"dishName":"${foodData.dish}","dishPrice":"${foodData.price}"}`)
@@ -57,7 +59,7 @@ export class MenuComponent implements OnInit {
   removeDish(dishIndex: any) {
 
     let allObject = JSON.parse('[' + localStorage.getItem("cartItem") + ']');//[{}]
-    // console.log(allObject)
+    console.log(allObject)
 
     allObject.splice(dishIndex, 1);
 
@@ -93,7 +95,7 @@ export class MenuComponent implements OnInit {
   getMenuData() {
     const category = localStorage.getItem("category")
     const hotelName = localStorage.getItem("hotelName")
-    this.httpClient.get<any>("http://localhost:9000/search/" + category + "/" + hotelName).subscribe(
+    this.httpClient.get<any>(this.globalUrl+"/search/" + category + "/" + hotelName).subscribe(
       response => {
         console.log(response);
         this.menudata = response;

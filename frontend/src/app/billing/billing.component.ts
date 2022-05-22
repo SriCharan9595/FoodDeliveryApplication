@@ -1,3 +1,4 @@
+import { GlobalUrl } from './../global-url';
 import { RegularService } from './../core/services/regular.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +15,8 @@ export class BillingComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private regularService: RegularService
+    private regularService: RegularService,
+    private globalUrl: GlobalUrl
   ) { }
 
 
@@ -34,7 +36,7 @@ export class BillingComponent implements OnInit {
   AddressData(data: any) {
     console.log(data)
 
-    this.http.post("http://localhost:9000/updateAddress", { foodieID: localStorage.getItem('logFoodieID'), doorNo: data.doorNo, street: data.street, area: data.area, district: data.district, pincode: data.pincode })
+    this.http.post(this.globalUrl+"/updateAddress", { foodieID: localStorage.getItem('logFoodieID'), doorNo: data.doorNo, street: data.street, area: data.area, district: data.district, pincode: data.pincode })
       .subscribe(
         (res: any) => {
           alert("Your address replaced successfully")
@@ -48,12 +50,12 @@ export class BillingComponent implements OnInit {
 
   foodieOrder() {
 
-    this.http.get<any>('http://localhost:9000/findAddress/' + localStorage.getItem('logFoodieID')).subscribe(
+    this.http.get<any>(this.globalUrl+'/findAddress/' + localStorage.getItem('logFoodieID')).subscribe(
       res => {
-        localStorage.setItem("foodieAddress", "" + res.doorNo + "," + res.street + "," + res.area + "," +
+        localStorage.setItem("foodieAddress", "" + res.doorNo + ",  " + res.street + "," + res.area + "," +
           res.district + "," + res.pincode)
 
-        this.http.post("http://localhost:9000/orders", {
+        this.http.post(this.globalUrl+"/orders", {
 
           foodieID: localStorage.getItem('logFoodieID'),
           foodieDetails: localStorage.getItem('foodieDetails'),

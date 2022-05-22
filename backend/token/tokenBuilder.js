@@ -8,7 +8,7 @@ authToken = userFound => {
         iat:Math.floor(Date.now()/1000),
     },
     process.env.secret,{
-        expiresIn:'5m'
+        expiresIn:'5s'
     });
 }
 

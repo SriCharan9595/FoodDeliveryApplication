@@ -6,10 +6,10 @@
 
 .user-text {
   position: absolute;
-  font-size: 36px;
+  font-size: 30px;
   color: #D6D1CB;
-  left: 4.35%;
-  top: 3%;
+  left: 6.35%;
+  top: 67.75%;
 }
 
 .user-btn, .admin-btn {
@@ -17,7 +17,7 @@
   font-size: 18px;
   height: 40px;
   width: 120px;
-  top: 14.6%;
+  top: 78%;
   left: 13.6%;
   border-radius: 50px;
   color: #D6D1CB;
@@ -28,14 +28,14 @@
 
 .admin-text {
   position: absolute;
-  font-size: 36px;
+  font-size: 30px;
   color: #D6D1CB;
-  left: 4.6%;
-  top: 20%;
+  left: 6.5%;
+  top: 68%;
 }
 
 .admin-btn {
-  top: 31.5%;
+  top: 78%;
   border-radius: 50px;
   background-color: rgb(46,120,95);
 }
@@ -52,7 +52,7 @@
 
 .user-box {
   position: fixed;
-  top: 400px;
+  top: 154px;
   margin-left: 110px;
   width: 420px;
   height: 460px;
@@ -65,7 +65,7 @@
 .admin-box {
   display: none;
   position: fixed;
-  top: 400px;
+  top: 154px;
   margin-left: 110px;
   width: 420px;
   height: 460px;

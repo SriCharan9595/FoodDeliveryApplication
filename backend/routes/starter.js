@@ -37,7 +37,9 @@ app.get('/', (req, res) => {
 app.post('/token', passport.authenticate('refreshToken', { session: false }), async (req, res) => {
 
     refreshTokenFromHeader = req.headers.authorization.split(' ')[1];
-    const authToken = tokenBuilder.authToken(req.user.sub)
+    const userFound = {id:req.user.sub}
+    const authToken = tokenBuilder.authToken(userFound)
+    console.log(req.user.sub)
     res.status(201).json({ authToken: authToken })
 
 })
@@ -118,6 +120,7 @@ app.post('/addAddress', async (req, res) => {
 
 app.get('/hotelData/:category', passport.authenticate('authToken', { session: false }), async (req, res) => {
     // const {category} = req.body;
+    console.log(req.params.category)
     const dispHotel = await hotelData.findAll({ where: { category: req.params.category } });
     if (dispHotel != null) {
         res.status(200).send(dispHotel)

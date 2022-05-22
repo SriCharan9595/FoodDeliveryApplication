@@ -1,3 +1,4 @@
+import { GlobalUrl } from './../global-url';
 import { RegularService } from './../core/services/regular.service';
 import { TokenService } from '../core/services/token.service';
 import { Router } from '@angular/router';
@@ -22,15 +23,14 @@ export class hotelData {
 })
 
 
-
-
 export class HotelComponent implements OnInit {
 
   hoteldata!: hotelData[];
   constructor(
     private http: HttpClient,
     private router: Router,
-    private regularService: RegularService
+    private regularService: RegularService,
+    private globalUrl: GlobalUrl
   ) { }
 
   ngOnInit() {
@@ -45,7 +45,7 @@ export class HotelComponent implements OnInit {
 
   getHotelData() {
     const category = localStorage.getItem("category")
-    this.http.get<any>('http://localhost:9000/hotelData/' + category).subscribe(
+    this.http.get<any>(this.globalUrl+'/hotelData/' + category).subscribe(
       response => {
         console.log(response);
         this.hoteldata = response;

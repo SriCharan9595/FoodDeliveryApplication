@@ -1,3 +1,4 @@
+import { GlobalUrl } from './../../global-url';
 import { RegularService } from './../services/regular.service';
 import { Injectable } from '@angular/core';
 import { TokenService } from '../services/token.service';
@@ -22,7 +23,8 @@ export class JwtAuthInterceptor implements HttpInterceptor {
   constructor(
     private http: HttpClient,
     private tokenService: TokenService,
-    private regularService: RegularService
+    private regularService: RegularService,
+    private globalUrl: GlobalUrl
   ) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
@@ -50,9 +52,10 @@ export class JwtAuthInterceptor implements HttpInterceptor {
       if (err && err.status == 401 && !this.refreshed) {
         this.refreshed = true;
         this.refreshRequest = true;
-        return this.http.post('http://localhost:9000/token', "").pipe(
+        return this.http.post(this.globalUrl+'/token', "").pipe(
           switchMap((res: any) => {
             this.tokenService.saveAuthToken(res.authToken)
+            this.refreshed = false
             return next.handle(request.clone({
               setHeaders: {
                 Authorization: "Bearer " + this.tokenService.getAuthToken()
@@ -66,7 +69,6 @@ export class JwtAuthInterceptor implements HttpInterceptor {
           return throwError(() => err);
         }))
       }
-      this.refreshed = false;
       return throwError(() => err);
 
     }));
