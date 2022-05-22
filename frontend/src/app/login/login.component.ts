@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   isUser = true;
 
   openAdmin() {
+
     const adminForm = document.getElementById("admin-form") as HTMLDivElement
     const userForm = document.getElementById("user-form") as HTMLDivElement
 
@@ -39,9 +40,11 @@ export class LoginComponent implements OnInit {
     userForm.style.display = "none"
 
     this.isUser = false
+
   }
 
   openUser() {
+
     const adminForm = document.getElementById("admin-form") as HTMLDivElement
     const userForm = document.getElementById("user-form") as HTMLDivElement
 
@@ -49,6 +52,7 @@ export class LoginComponent implements OnInit {
     userForm.style.display = "block"
     
     this.isUser = true
+    
   }
 
   UserData(data: any) {
