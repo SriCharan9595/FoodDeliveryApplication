@@ -103,6 +103,7 @@ input[type="submit"] {
     border: 2px solid #DB3C2E;
     height: 35px;
     width: 110px;
+    cursor: pointer;
     border-radius: 50px;
     margin-left: 3px;
     color: #333333;
@@ -120,4 +121,3 @@ input[type="submit"]:hover {
     font-size: 11px;
   }
 }
-

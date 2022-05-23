@@ -85,6 +85,7 @@ export class BillingComponent implements OnInit {
     const totalPrice = localStorage.getItem('totalPrice')
     let finalBill = parseInt("" + totalPrice) + 50
     localStorage.setItem("finalBill", "" + finalBill)
+    console.log(finalBill)
 
   }
 

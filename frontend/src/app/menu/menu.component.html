@@ -46,7 +46,7 @@
         </div>
 
         <div class="table-cell last-cell">
-            <form #name="ngForm" (ngSubmit)="addFood({dish:menu.hotelMenu, price:menu.menuPrice})">
+            <form #name="ngForm" (ngSubmit)="addFood({dishName:menu.hotelMenu,dishPrice:menu.menuPrice})">
                 <input type="submit" value="ADD">
             </form>
         </div>
@@ -61,11 +61,11 @@
         <div *ngFor="let food of cart; let ind = index">
             <div class="table-row">
                 <div class="table-cell first-cell">
-                    <p>{{food.dish}}</p>
+                    <p>{{food.dishName}}</p>
                 </div>
 
                 <div class="table-cell">
-                    <p>{{food.price}}</p>
+                    <p>{{food.dishPrice}}</p>
                 </div>
 
                 <div class="table-cell last-cell">

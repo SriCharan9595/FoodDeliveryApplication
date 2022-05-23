@@ -72,7 +72,7 @@ admin.get('/deleteFoodie/:id', passport.authenticate('authToken', { session: fal
     const checkFoodie = await foodieData.findOne({ where: { id: req.params.id } });
     const checkAddress = await deliveryData.findOne({ where: { foodieID: req.params.id } });
 
-    if (checkFoodie != null && checkAddress!= null) {
+    if (checkFoodie != null || checkAddress!= null) {
         const deleteFoodie = await foodieData.destroy({ where: { id: req.params.id } })
         const deleteAddress = await deliveryData.destroy({ where: { foodieID: req.params.id } })
 

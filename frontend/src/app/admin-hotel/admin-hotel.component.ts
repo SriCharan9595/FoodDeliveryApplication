@@ -38,7 +38,7 @@ export class AdminHotelComponent implements OnInit {
       .subscribe(
         res => {
           if (res.status === 200) {
-            prompt('Success')
+            alert('Success')
             console.log('Hotel removed successfully' + res);
           }
         })

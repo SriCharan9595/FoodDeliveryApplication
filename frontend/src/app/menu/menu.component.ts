@@ -36,29 +36,25 @@ export class MenuComponent implements OnInit {
   totalPrice: number = parseInt(localStorage.getItem("totalPrice") || "0");
 
   addFood(foodData: any) {
-
     this.cart.push(foodData)
-    console.log(foodData)
-    console.log(this.totalPrice)
-
     if (localStorage.getItem("cartItem") == null) {
-      localStorage.setItem("cartItem", `{"dishName":"${foodData.dish}","dishPrice":"${foodData.price}"}`)
-      this.totalPrice += parseInt(foodData.price)
+      localStorage.setItem("cartItem", `{"dishName":"${foodData.dishName}","dishPrice":"${foodData.dishPrice}"}`)
+      this.totalPrice += foodData.dishPrice
+      localStorage.setItem("totalPrice", "" + this.totalPrice)
+    } else {
+      localStorage.setItem("cartItem", localStorage.getItem("cartItem") + "," + `{"dishName":"${foodData.dishName}","dishPrice":"${foodData.dishPrice}"}`)
+      this.totalPrice += parseInt(foodData.dishPrice)
       localStorage.setItem("totalPrice", "" + this.totalPrice)
     }
-    else {
-      localStorage.setItem("cartItem", localStorage.getItem("cartItem") + "," + `{"dishName":"${foodData.dish}","dishPrice":"${foodData.price}"}`)
-      this.totalPrice += parseInt(foodData.price)
-      localStorage.setItem("totalPrice", "" + this.totalPrice)
-    }
-    
+
+    // this.messageService.dishAddedToCart();
+
   }
 
 
   removeDish(dishIndex: any) {
 
-    let allObject = JSON.parse('[' + localStorage.getItem("cartItem") + ']');//[{}]
-    console.log(allObject)
+    let allObject = JSON.parse('[' + localStorage.getItem("cartItem") + ']');
 
     allObject.splice(dishIndex, 1);
 
@@ -66,25 +62,27 @@ export class MenuComponent implements OnInit {
 
     const removedDish = this.cart.splice(dishIndex, 1);
 
-    // console.log(removedDish[0])
 
     allObject.forEach((element: any) => {
-      console.log(element)
+
       if (localStorage.getItem("cartItem") == null) {
-        localStorage.setItem("cartItem", `{"dishName":"${element.dish}","dishPrice":"${element.price}"}`)
-      } 
-      
+        localStorage.setItem("cartItem", `{"dishName":"${element.dishName}","dishPrice":"${element.dishPrice}"}`)
+      }
       else {
-        localStorage.setItem("cartItem", localStorage.getItem("cartItem") + "," + `{"dishName":"${element.dish}","dishPrice":"${element.price}"}`)
+        localStorage.setItem("cartItem", localStorage.getItem("cartItem") + "," + `{"dishName":"${element.dishName}","dishPrice":"${element.dishPrice}"}`)
       }
 
     });
 
-    this.totalPrice -= parseInt(removedDish[0].price)
+
+    this.totalPrice -= parseInt(removedDish[0].dishPrice)
 
     localStorage.setItem("totalPrice", "" + this.totalPrice)
 
+    // this.messageService.dishRemovedFromCart()
+
   }
+
 
 
   ngOnInit(): void {
@@ -94,7 +92,7 @@ export class MenuComponent implements OnInit {
   getMenuData() {
     const category = localStorage.getItem("category")
     const hotelName = localStorage.getItem("hotelName")
-    this.httpClient.get<any>(GlobalUrl.url+"/search/" + category + "/" + hotelName).subscribe(
+    this.httpClient.get<any>(GlobalUrl.url + "/search/" + category + "/" + hotelName).subscribe(
       response => {
         console.log(response);
         this.menudata = response;

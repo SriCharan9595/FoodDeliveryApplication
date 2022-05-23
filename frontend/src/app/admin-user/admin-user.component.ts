@@ -39,7 +39,7 @@ export class AdminUserComponent implements OnInit {
       .subscribe(
         res => {
           if (res.status === 200) {
-            prompt('Success')
+            alert('Success')
             console.log('Foodie removed successfully' + res);
           }
         })
