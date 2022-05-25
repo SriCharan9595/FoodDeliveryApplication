@@ -1,4 +1,4 @@
-import { GlobalUrl } from './../../global-url';
+import { GlobalUrl } from '../../url/global-url';
 import { RegularService } from './../services/regular.service';
 import { Injectable } from '@angular/core';
 import { TokenService } from '../services/token.service';

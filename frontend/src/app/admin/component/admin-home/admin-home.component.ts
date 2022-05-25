@@ -1,13 +1,13 @@
-import { RegularService } from './../core/services/regular.service';
+import { RegularService } from '../../../core/services/regular.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  selector: 'app-admin-home',
+  templateUrl: './admin-home.component.html',
+  styleUrls: ['./admin-home.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminHomeComponent implements OnInit {
 
   constructor (
     private router: Router,

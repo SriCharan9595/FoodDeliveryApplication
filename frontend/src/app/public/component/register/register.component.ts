@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { GlobalUrl } from '../global-url';
+import { GlobalUrl } from '../../../url/global-url';
 
 @Component({
   selector: 'app-register',

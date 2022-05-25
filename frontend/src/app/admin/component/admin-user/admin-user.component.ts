@@ -1,9 +1,9 @@
-import { GlobalUrl } from './../global-url';
-import { RegularService } from './../core/services/regular.service';
+import { GlobalUrl } from '../../../url/global-url';
+import { RegularService } from '../../../core/services/regular.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { TokenService } from '../core/services/token.service'
+import { TokenService } from '../../../core/services/token.service'
 
 export class foodieData {
   constructor(
@@ -37,12 +37,13 @@ export class AdminUserComponent implements OnInit {
   deleteFoodie(id: any) {
     this.httpClient.get<any>(GlobalUrl.url+"/admin/deleteFoodie/" + id)
       .subscribe(
-        res => {
-          if (res.status === 200) {
-            alert('Success')
-            console.log('Foodie removed successfully' + res);
-          }
-        })
+        (res:any)=>{
+            window.location.reload()
+            console.log(res.message) 
+        },(err)=>{
+          console.log(err)
+          console.log("Something went wrong")
+      })
   }
 
   getFoodieData() {

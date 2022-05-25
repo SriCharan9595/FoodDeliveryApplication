@@ -1,8 +1,9 @@
+import { NotifyService } from '../../../core/services/notify.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TokenService } from '../core/services/token.service';
-import { GlobalUrl } from '../global-url';
+import { TokenService } from '../../../core/services/token.service';
+import { GlobalUrl } from '../../../url/global-url';
 
 export class findFoodie {
   constructor(
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private notify: NotifyService
   ) { }
 
   isUser = true;
@@ -85,6 +87,7 @@ export class LoginComponent implements OnInit {
           );
 
           localStorage.setItem("Role", "USER")
+          this.notify.userLoginSuccess()
           this.tokenService.saveAuthToken(res.authToken)
           this.tokenService.saveRefreshToken(res.refreshToken)
           this.router.navigate(['category'])
@@ -92,7 +95,7 @@ export class LoginComponent implements OnInit {
         },
 
         (err) => {
-          console.log("wrong credentials")
+          this.notify.invalidCredentials()
         }
 
       )
@@ -104,12 +107,13 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (res: any) => {
           localStorage.setItem("Role", "ADMIN")
+          this.notify.adminLoginSuccess()
           this.tokenService.saveAuthToken(res.authToken)
           this.tokenService.saveRefreshToken(res.refreshToken)
           this.router.navigate(['admin'])
         },
         (err) => {
-          console.log("wrong credentials")
+          this.notify.invalidCredentials()
         })
   }
 

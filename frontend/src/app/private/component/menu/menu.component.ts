@@ -1,9 +1,9 @@
-import { RegularService } from './../core/services/regular.service';
+import { RegularService } from '../../../core/services/regular.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { TokenService } from '../core/services/token.service';
-import { GlobalUrl } from '../global-url';
+import { TokenService } from '../../../core/services/token.service';
+import { GlobalUrl } from '../../../url/global-url';
 
 export class menuData {
   constructor(

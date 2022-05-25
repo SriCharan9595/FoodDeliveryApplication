@@ -1,8 +1,8 @@
-import { RegularService } from './../core/services/regular.service';
+import { RegularService } from '../../../core/services/regular.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TokenService } from '../core/services/token.service'; 
+import { TokenService } from '../../../core/services/token.service'; 
 
 
 @Component({

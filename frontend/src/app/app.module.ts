@@ -1,24 +1,26 @@
 import { JwtAuthInterceptor } from './core/interceptors/jwt-auth.interceptor';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { AddressComponent } from './address/address.component';
-import { CategoryComponent } from './category/category.component';
+import { HomeComponent } from './public/component/home/home.component';
+import { RegisterComponent } from './public/component/register/register.component';
+import { LoginComponent } from './public/component/login/login.component';
+import { AddressComponent } from './public/component/address/address.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';  
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { CategoryComponent } from './private/component/category/category.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HotelComponent } from './hotel/hotel.component';
-import { MenuComponent } from './menu/menu.component';
-import { AdminComponent } from './admin/admin.component';
-import { AdminUserComponent } from './admin-user/admin-user.component';
-import { AdminHotelComponent } from './admin-hotel/admin-hotel.component';
+import { HotelComponent } from './private/component/hotel/hotel.component';
+import { MenuComponent } from './private/component/menu/menu.component';
+import { AdminHomeComponent } from './admin/component/admin-home/admin-home.component';
+import { AdminUserComponent } from './admin/component/admin-user/admin-user.component';
+import { AdminHotelComponent } from './admin/component/admin-hotel/admin-hotel.component';
 import { TokenService } from './core/services/token.service';
-import { AddHotelComponent } from './add-hotel/add-hotel.component';
-import { BillingComponent } from './billing/billing.component';
+import { AddHotelComponent } from './admin/component/add-hotel/add-hotel.component';
+import { BillingComponent } from './private/component/billing/billing.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,7 @@ import { BillingComponent } from './billing/billing.component';
     HotelComponent,
     CategoryComponent,
     MenuComponent,
-    AdminComponent,
+    AdminHomeComponent,
     AdminUserComponent,
     AdminHotelComponent,
     AddHotelComponent,
@@ -39,9 +41,11 @@ import { BillingComponent } from './billing/billing.component';
     ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

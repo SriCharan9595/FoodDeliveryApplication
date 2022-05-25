@@ -1,6 +1,6 @@
-import { GlobalUrl } from './../global-url';
-import { RegularService } from './../core/services/regular.service';
-import { TokenService } from '../core/services/token.service';
+import { GlobalUrl } from '../../../url/global-url';
+import { RegularService } from '../../../core/services/regular.service';
+import { TokenService } from '../../../core/services/token.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';

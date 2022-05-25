@@ -1,0 +1,138 @@
+<div class="bg">
+    <img style="height:920px; width:1920px;" src="../../assets/img/plainbg.jpg">
+</div>
+
+<!-- <div class="nav-bar">
+    <h1>CATEGORY</h1>
+    <input type="checkbox" id="checkbox_toggle" />
+    <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+    <div class="menu">
+        <li>
+            <a style="margin-left:1688px;" (click)="logout()">
+                LOGOUT
+            </a>
+        </li>
+    </div>
+</div> -->
+
+<nav class="navbar navbar-expand-md navbar-custom navbar-dark">
+    <a class="navbar-brand" href="javascript:void(0);" routerLink="/">
+      <img
+        src="https://img.icons8.com/external-ddara-fill-ddara/64/000000/external-food-delivery-delivery-services-ddara-fill-ddara-1.png" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <!-- <ng-container *ngIf="this.auth.isAuthenticated();then authenticated;else notAuthenticated">
+        </ng-container> -->
+          <li class="nav-item" style="color: rgb(48, 42, 42);padding-top: 15px;"><a href="javascript:void(0);"
+              routerLink="/register" class="nav-link">Register</a></li>
+          <li style="color: rgb(48, 42, 42);padding-top: 15px;"><a class="nav-link " href="javascript:void(0);"
+              routerLink="/login">Login</a></li>
+              <li style="color: rgb(48, 42, 42);padding-top: 15px;"><a class="nav-link " href="javascript:void(0);"
+               (click)="logout()">Logout</a></li>
+          <li style="float: centre;text-align: center;"><a class="nav-link" href="javascript:void(0);">
+              <h1 style="float: center;text-align: center;">
+                <img src="https://img.icons8.com/ios-filled/50/000000/explicit.png" />
+                <strong
+                  style="color: rgb(48, 42, 42); padding-top:15px;text-align:center; font-family: 'Play'">dible
+                </strong>
+              </h1>
+            </a>
+          </li>
+          <!-- <li class="nav-item"><a href="javascript:void(0);" routerLink="/dashboard" class="nav-link">Dashboard</a></li> -->
+          <li><a class="nav-link" href="javascript:void(0);"></a></li>
+      </ul>
+    </div>
+  </nav>
+
+<!-- <nav class="navbar">
+    <div class="logo">CATEGORY</div>
+    <ul class="nav-links">
+      <input type="checkbox" id="checkbox_toggle" />
+      <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+      <div class="menu">
+      <li> <a href="/logout" (click)=logout()>LOGOUT</a></li>
+      </div>
+    </ul> -->
+
+
+<div style="align-items:center;">
+
+    <div class="container" style="margin-left:180px; top:205px;">
+        <img src="../../assets/img/breakfast.jpg" class="image">
+        <div class="overlay overlayBottom">
+            <div class="content">
+                <p style="text-align:center; margin-top:-15%; font-size: 30px;">Breakfast</p>
+                <form #name="ngForm" (ngSubmit)="category('breakfast')">
+                    <input type="submit" value="SELECT">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-left:760px; top:205px;">
+        <img src="../../assets/img/lunch.jpg" class="image">
+        <div class="overlay overlayBottom">
+            <div class="content">
+                <p style="text-align:center; margin-top:-15%; font-size: 30px;">Lunch</p>
+                <form #name="ngForm" (ngSubmit)="category('lunch')">
+                    <input type="submit" value="SELECT">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-left:1340px; top:205px;">
+        <img src="../../assets/img/snacks.jpg" class="image">
+        <div class="overlay overlayBottom">
+            <div class="content">
+                <p style="text-align:center; margin-top:-15%; font-size: 30px;">Snacks</p>
+                <form #name="ngForm" (ngSubmit)="category('snacks')">
+                    <input type="submit" value="SELECT">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-left:180px; top:555px;">
+        <img src="../../assets/img/beverages.jpg" class="image">
+        <div class="overlay overlayBottom">
+            <div class="content">
+                <p style="text-align:center; margin-top:-15%; font-size: 30px;">Beverages</p>
+                <form #name="ngForm" (ngSubmit)="category('beverages')">
+                    <input type="submit" value="SELECT">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-left:760px; top: 555px;">
+        <img src="../../assets/img/dinner.jpg" class="image">
+        <div class="overlay overlayBottom">
+            <div class="content">
+                <p style="text-align:center; margin-top:-15%; font-size: 30px;">Dinner</p>
+                <form #name="ngForm" (ngSubmit)="category('dinner')">
+                    <input type="submit" value="SELECT">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-left:1340px; top:555px">
+        <img src="../../assets/img/fastfood.jpg" class="image">
+        <div class="overlay overlayBottom">
+            <div class="content">
+                <p style="text-align:center; margin-top:-15%; font-size: 30px;">Fastfood</p>
+                <form #name="ngForm" (ngSubmit)="category('fastfood')">
+                    <input type="submit" value="SELECT">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>

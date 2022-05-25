@@ -1,5 +1,6 @@
-import { GlobalUrl } from './../global-url';
-import { RegularService } from './../core/services/regular.service';
+import { NotifyService } from '../../../core/services/notify.service';
+import { GlobalUrl } from '../../../url/global-url';
+import { RegularService } from '../../../core/services/regular.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -15,7 +16,8 @@ export class BillingComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private regularService: RegularService
+    private regularService: RegularService,
+    private notify: NotifyService
   ) { }
 
 
@@ -38,12 +40,14 @@ export class BillingComponent implements OnInit {
     this.http.post(GlobalUrl.url+"/updateAddress", { foodieID: localStorage.getItem('logFoodieID'), doorNo: data.doorNo, street: data.street, area: data.area, district: data.district, pincode: data.pincode })
       .subscribe(
         (res: any) => {
-          alert("Your address replaced successfully")
+          this.notify.addressReplace()
           console.log(res.message)
           // this.router.navigate(['login'])
         }, (err) => {
           console.log("Something went wrong")
         })
+
+        
   }
 
 
@@ -65,7 +69,7 @@ export class BillingComponent implements OnInit {
         }).subscribe(
           (res: any) => {
             console.log(res.message)
-            alert("Your Order is Placed Succesfully")
+            this.notify.orderPlaced()
           },
           (err) => {
             console.log("Something went wrong")
@@ -81,12 +85,17 @@ export class BillingComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.load()
+  }
 
+  // subload() {
+  //   window.location.reload()
+  // }
+
+  load() {
     const totalPrice = localStorage.getItem('totalPrice')
     let finalBill = parseInt("" + totalPrice) + 50
     localStorage.setItem("finalBill", "" + finalBill)
     console.log(finalBill)
-
   }
-
 }

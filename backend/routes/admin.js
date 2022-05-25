@@ -76,7 +76,7 @@ admin.get('/deleteFoodie/:id', passport.authenticate('authToken', { session: fal
         const deleteFoodie = await foodieData.destroy({ where: { id: req.params.id } })
         const deleteAddress = await deliveryData.destroy({ where: { foodieID: req.params.id } })
 
-        res.status(200).send("Foodie removed successfully...");
+        res.status(200).send({ "message": "Foodie deleted successfully with foodieID: " + req.params.id });
     }
     else {
         res.status(404).send("Your credentials are not matched with database")
