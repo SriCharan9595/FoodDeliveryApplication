@@ -33,6 +33,8 @@ export class BillingComponent implements OnInit {
 
   finalBill = localStorage.getItem('finalBill')
 
+  paymentHandler:any = null;
+
 
   AddressData(data: any) {
     console.log(data)
@@ -50,9 +52,46 @@ export class BillingComponent implements OnInit {
         
   }
 
+  initializePayment(finalBill: number) {
+    const paymentHandler = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_51L35GdSIsWsinmVaJqSdULYwkfCUtqwZpMXKoYF7JUTqduLpwqjIeSvPfP0R1vvw5PhLsu9ZuyUrcN2x4PRvYiMu00HXtonpUb',
+      locale: 'auto',
+      token: function (stripeToken: any) {
+        console.log({stripeToken})
+        // alert('Stripe token generated!');
+      }
+    });
+  
+    paymentHandler.open({
+      name: 'FoodiezSpot',
+      description: 'Why Starve When You Have Us',
+      amount: finalBill * 100,
+      currency: "inr"
+    });
+  }
+  
+  invokeStripe() {
+    if(!window.document.getElementById('stripe-script')) {
+      const script = window.document.createElement("script");
+      script.id = "stripe-script";
+      script.type = "text/javascript";
+      script.src = "https://checkout.stripe.com/checkout.js";
+      script.onload = () => {
+        this.paymentHandler = (<any>window).StripeCheckout.configure({
+          key: 'pk_test_51L35GdSIsWsinmVaJqSdULYwkfCUtqwZpMXKoYF7JUTqduLpwqjIeSvPfP0R1vvw5PhLsu9ZuyUrcN2x4PRvYiMu00HXtonpUb',
+          locale: 'auto',
+          token: function (stripeToken: any) {
+            console.log(stripeToken)
+            alert('Payment has been successfull!');
+          }
+        });
+      }
+      window.document.body.appendChild(script);
+    }
+  }
+
 
   foodieOrder() {
-
     this.http.get<any>(GlobalUrl.url+'/findAddress/' + localStorage.getItem('logFoodieID')).subscribe(
       res => {
         localStorage.setItem("foodieAddress", "" + res.doorNo + ",  " + res.street + "," + res.area + "," +
@@ -69,7 +108,7 @@ export class BillingComponent implements OnInit {
         }).subscribe(
           (res: any) => {
             console.log(res.message)
-            this.notify.orderPlaced()
+            this.initializePayment(parseInt(""+this.finalBill))
           },
           (err) => {
             console.log("Something went wrong")
@@ -86,6 +125,8 @@ export class BillingComponent implements OnInit {
 
   ngOnInit(): void {
     this.load()
+    this.invokeStripe();
+
   }
 
   // subload() {
@@ -94,8 +135,7 @@ export class BillingComponent implements OnInit {
 
   load() {
     const totalPrice = localStorage.getItem('totalPrice')
-    let finalBill = parseInt("" + totalPrice) + 50
-    localStorage.setItem("finalBill", "" + finalBill)
-    console.log(finalBill)
+    const bill = parseInt("" + totalPrice) + 50
+    localStorage.setItem("finalBill", "" + bill)
   }
 }

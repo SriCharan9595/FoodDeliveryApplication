@@ -1,5 +1,4 @@
-
-  <div class="nav-bar">
+<!-- <div class="nav-bar">
     <h1>RESTAURANTS</h1>
   
     <a routerLink="/category" routerLinkActive="active" style="margin-left:1410px">
@@ -9,20 +8,35 @@
     <a style="margin-left:1688px;" (click) = "logout()">
       <span>LOGOUT</span>
     </a>
-  </div>
+  </div> -->
 
-  
-  <div class="hotel">
+<nav class="navbar">
+
+  <div class="logo">RESTAURANTS</div>
+
+  <ul class="nav-links">
+
+    <input type="checkbox" id="checkbox_toggle" />
+    <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+    <div class="menu">
+      <li><a routerLink="/category" routerLinkActive="active">CATEGORY</a></li>
+      <li><a (click) = "logout()">LOGOUT</a></li>
+    </div>
+  </ul>
+</nav>
+
+
+<div class="hotel">
   <div class="box-container">
-      <div class="box" *ngFor="let hotel of hoteldata" >
-           <img [src]="hotel.hotelUrl">
-           <h2>{{hotel.hotelName}}</h2>
-           <h4>{{hotel.area}}</h4>
-           <span>{{hotel.rating}}</span>
-          
-          <button class="submit-btn" (click)="hotelName(hotel.hotelName)">SELECT</button>
-      </div>
-      <div class="end"></div>
+    <div class="box" *ngFor="let hotel of hoteldata">
+      <img [src]="hotel.hotelUrl">
+      <h2>{{hotel.hotelName}}</h2>
+      <h4>{{hotel.area}}</h4>
+      <span>{{hotel.rating}}</span>
+
+      <button class="submit-btn" (click)="hotelName(hotel.hotelName)">SELECT</button>
+    </div>
+    <div class="end"></div>
   </div>
 </div>
-

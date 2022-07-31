@@ -1,11 +1,114 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Libre+Baskerville&family=Lora&family=Macondo&family=Oleo+Script+Swash+Caps&display=swap');
 
 .bg {
-    background-color: #333333;
     position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: #333333;
+
 }
 
-.nav-bar {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+li {
+    list-style: none;
+}
+
+.navbar {
+    display: flex;
+    top: 0px;
+    position: absolute;
+    width: 100%;
+    height: 83px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #D6D1CB;
+}
+
+.nav-links a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 45px;
+    margin-top: 3px;
+    margin-left: 76px;
+    color: rgb(46, 120, 95);
+    font-family: 'Libre Baskerville', serif;
+}
+
+.menu {
+    display: flex;
+    gap: 2.6em;
+    padding-top: 5px;
+    margin-left: -11.5%;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.nav-links a:hover {
+    color: #DB3C2E;
+}
+
+.menu .base-color {
+    color: #DB3C2E;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 32px;
+    user-select: none;
+}
+
+
+
+@media (max-width: 1200px) {
+    .menu {
+        display: none;
+        position: absolute;
+        background-color: #D6D1CB;
+        right: 0;
+        left: 0;
+        text-align: center;
+        margin-top: 2.8%;
+        padding: 10px;
+    }
+
+    .nav-links a:hover {
+        color: #DB3C2E;
+    }
+
+    .logo {
+        margin-left: 0%;
+        font-size: 36px;
+    }
+
+    .menu li+li {
+        margin-top: 2vh;
+    }
+
+    input[type=checkbox]:checked~.menu {
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+}
+
+/* .nav-bar {
     position: absolute;
     height: 83px;
     width: 100%;
@@ -35,22 +138,21 @@
 
 .nav-bar a span:hover {
     color: #DB3C2E;
-}
+} */
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-.table-box
-{
+.table-box {
     position: absolute;
     left: -12px;
     top: 150px;
     width: 100%;
 }
 
-.table-row{
+.table-row {
     display: table;
     width: 82%;
     height: 44px;
@@ -59,15 +161,15 @@
     background: #D6D1CB;
     border-radius: 20px;
     padding: 12px 0;
-    color: rgb(46,120,95);
+    color: rgb(46, 120, 95);
     font-size: 25px;
     font-weight: 400;
 }
 
-.table-head{
-    background: rgb(46,120,95);
+.table-head {
+    background: rgb(46, 120, 95);
     position: relative;
-    width:81%;
+    width: 81%;
     box-shadow: none;
     color: #D6D1CB;
     font-weight: 600;
@@ -75,25 +177,25 @@
     margin-left: 170px;
 }
 
-.table-head .table-cell{
+.table-head .table-cell {
     border-right: none;
 }
 
-.table-cell{
+.table-cell {
     display: table-cell;
     width: 20%;
     text-align: center;
     padding: 4px 0;
-    border-right: 1px solid rgb(46,120,95);
+    border-right: 1px solid rgb(46, 120, 95);
     vertical-align: middle;
 }
 
-.first-cell{
+.first-cell {
     text-align: center;
-    border-right: 1px solid rgb(46,120,95);
+    border-right: 1px solid rgb(46, 120, 95);
 }
 
-.last-cell{
+.last-cell {
     border-right: none;
     text-align: center;
 }
@@ -113,11 +215,17 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: transparent;
     border: 2px solid #DB3C2E;
-    color: rgb(46,120,95);
+    color: rgb(46, 120, 95);
 }
 
-@media only screen and (max-width: 600px) {
-  .table-row {
-    font-size: 11px;
-  }
+@media (max-width: 1200px) {
+    .table-row {
+        font-size: 12px;
+    }
+    .table-head {
+        font-size: 12px;
+    }
+    .table-box {
+        top: 20rem;
+    }
 }

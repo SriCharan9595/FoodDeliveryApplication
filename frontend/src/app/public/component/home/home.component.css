@@ -81,3 +81,32 @@
 .media img:hover {
     border: 1px solid #D6D1CB;
 }
+/* 
+@media only screen and (max-width: 600px) {
+    .logo img {
+        top: 2%;
+        margin-left: 1.5%;
+        width: 14%;
+        height: 13%;
+    }
+    
+    .logo h1 {
+        top: 2%;
+        margin-left: 15%;
+        font-size: 36px;
+    }
+
+    .banner-text h1{
+        position: absolute;
+        top: 10%;
+        font-size: 32px;
+        margin-left: 10%;
+    }
+
+    .banner-text h2 {
+        top: 20%;
+        font-size: 32px;
+        margin-left: 18%;
+    }
+    
+} */

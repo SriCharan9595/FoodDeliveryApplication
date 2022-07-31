@@ -2,7 +2,7 @@
   <img style="height:920px; width:1920px;" src="../../assets/img/plainbg.jpg">
 </div>
 
-<div class="nav-bar">
+<!-- <div class="nav-bar">
   <h1>ADMIN</h1>
 
   <a routerLink="/getFoodies" routerLinkActive="active" style="margin-left:1042px;">
@@ -16,4 +16,21 @@
   <a style="margin-left:1688px;" (click) = "logout()">
     <span>LOGOUT</span>
   </a>
-</div>
+</div> -->
+
+<nav class="navbar">
+    
+    <div class="logo">ADMIN</div>
+    
+    <ul class="nav-links">
+        
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        
+        <div class="menu">
+            <li><a routerLink="/getFoodies" routerLinkActive="active">USER DATA</a></li>
+            <li><a routerLink="/getHotel" routerLinkActive="active">RESTAURANTS</a></li>
+            <li><a (click) = "logout()">LOGOUT</a></li>
+        </div>
+    </ul>
+</nav>

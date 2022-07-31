@@ -2,13 +2,28 @@
     <img style="height:920px; width:1920px;" src="../../assets/img/plainbg.jpg">
 </div>
 
-<div class="nav-bar">
+<!-- <div class="nav-bar">
     <h1>INVOICE</h1>
 
     <a style="margin-left:1688px;" (click)="logout()">
         <span>LOGOUT</span>
     </a>
-</div>
+</div> -->
+
+<nav class="navbar">
+    
+    <div class="logo">INVOICE</div>
+    
+    <ul class="nav-links">
+        
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        
+        <div class="menu">
+            <li><a (click) = "logout()">LOGOUT</a></li>
+        </div>
+    </ul>
+</nav>
 
 <div class="order">
     <img src="../../assets/img/order.png">
@@ -27,9 +42,9 @@
         <h3> {{username}} <br> {{phoneNo}}</h3>
     </div>
 
-    <h4 style="top:290px;">Total Cost ----------- &#8377;{{totalPrice}}</h4>
-    <h5 style="top:325px;">Delivery Charges --- &#8377;50</h5>
-    <h6 style="top:390px;">Final Bill ------------ &#8377;{{finalBill}}</h6>
+    <h4>Total Cost ----------- &#8377;{{totalPrice}}</h4>
+    <h5>Delivery Charges --- &#8377;50</h5>
+    <h6>Final Bill ------------ &#8377;{{finalBill}}</h6>
 
     
     <button type="button" (click)="foodieOrder()">&emsp;PROCEED TO PAY&emsp;</button>

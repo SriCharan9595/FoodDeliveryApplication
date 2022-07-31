@@ -1,22 +1,24 @@
 <div class="bg">
-    <img style="height:920px; width:1920px;" src="../../assets/img/plainbg.jpg">
+    <img src="../../assets/img/plainbg.jpg">
 </div>
 
-<div class="nav-bar">
-    <h1>ADMIN</h1>
+<nav class="navbar">
+    
+    <div class="logo">ADMIN</div>
+    
+    <ul class="nav-links">
+        
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        
+        <div class="menu">
+            <li><a class="base-color" routerLink="/getFoodies" routerLinkActive="active">USER DATA</a></li>
+            <li><a routerLink="/getHotel" routerLinkActive="active">RESTAURANTS</a></li>
+            <li><a (click) = "logout()">LOGOUT</a></li>
+        </div>
+    </ul>
+</nav>
 
-    <a routerLink="/getFoodies" routerLinkActive="active" style="margin-left:1042px;">
-        <span style="color: #DB3C2E;">USER DATA</span>
-    </a>
-
-    <a routerLink="/getHotel" routerLinkActive="active" style="margin-left:1333px">
-        <span>RESTAURANTS</span>
-    </a>
-
-    <a style="margin-left:1688px;" (click)="logout()">
-        <span>LOGOUT</span>
-    </a>
-</div>
 
 <div class="table-box">
 
