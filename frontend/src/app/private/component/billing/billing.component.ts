@@ -58,9 +58,40 @@ export class BillingComponent implements OnInit {
       locale: 'auto',
       token: function (stripeToken: any) {
         console.log({stripeToken})
-        // alert('Stripe token generated!');
+        foodieOrder();
       }
     });
+
+
+    const foodieOrder = ()=>{
+      this.http.get<any>(GlobalUrl.url+'/findAddress/' + localStorage.getItem('logFoodieID')).subscribe(
+        res => {
+          localStorage.setItem("foodieAddress", "" + res.doorNo + ",  " + res.street + "," + res.area + "," +
+            res.district + "," + res.pincode)
+          this.notify.addressReplace()
+          this.http.post(GlobalUrl.url+"/orders", {
+  
+            foodieID: localStorage.getItem('logFoodieID'),
+            foodieDetails: localStorage.getItem('foodieDetails'),
+            foodieAddress: localStorage.getItem('foodieAddress'),
+            menuDetails: localStorage.getItem('cartItem'),
+            finalBill: localStorage.getItem('finalBill')
+  
+          }).subscribe(
+            (res: any) => {
+              console.log(res.message)
+              this.notify.orderPlaced()
+              this.router.navigate(['category'])
+            },
+            (err) => {
+              console.log("Something went wrong")
+            })
+  
+        }
+      )
+    }
+  
+
   
     paymentHandler.open({
       name: 'FoodiezSpot',
@@ -91,33 +122,10 @@ export class BillingComponent implements OnInit {
   }
 
 
-  foodieOrder() {
-    this.http.get<any>(GlobalUrl.url+'/findAddress/' + localStorage.getItem('logFoodieID')).subscribe(
-      res => {
-        localStorage.setItem("foodieAddress", "" + res.doorNo + ",  " + res.street + "," + res.area + "," +
-          res.district + "," + res.pincode)
-
-        this.http.post(GlobalUrl.url+"/orders", {
-
-          foodieID: localStorage.getItem('logFoodieID'),
-          foodieDetails: localStorage.getItem('foodieDetails'),
-          foodieAddress: localStorage.getItem('foodieAddress'),
-          menuDetails: localStorage.getItem('cartItem'),
-          finalBill: localStorage.getItem('finalBill')
-
-        }).subscribe(
-          (res: any) => {
-            console.log(res.message)
-            this.initializePayment(parseInt(""+this.finalBill))
-          },
-          (err) => {
-            console.log("Something went wrong")
-          })
-
-      }
-    )
+  
+  proceedToPay() {
+    this.initializePayment(parseInt(""+this.finalBill))
   }
-
 
   logout() {
     this.regularService.logoutUser()

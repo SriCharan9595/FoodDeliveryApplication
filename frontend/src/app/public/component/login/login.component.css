@@ -35,8 +35,6 @@
 }
 
 .admin-btn {
-  top: 78%;
-  border-radius: 50px;
   background-color: rgb(46,120,95);
 }
 
@@ -163,4 +161,85 @@
   font-size: 23px;
   margin-top: 1px;
   margin-left: 2px;
+}
+
+@media (max-width: 600px) {
+  .bg {
+      display: none;
+  }
+
+  .user-box, .admin-box {
+    width: 284px;
+    height: 316px;
+    top: 108px;
+    margin-left: 42px;
+  }
+
+  .user-box h1, .admin-box h1{
+    font-size: 32px;
+    margin-left: 96px;
+  }
+
+  .user-box h4, .admin-box h4 {
+    font-size: 16px;
+    margin-left: 23px;
+  }
+
+  .user-box form label, .admin-box form label {
+    font-size: 19px;
+  }
+
+  .user-box form, .admin-box form {
+    margin-left: 23px;
+  }
+
+  .user-box form input, .admin-box form input {
+    width: 79%;
+    height: 22px;
+    padding: 0px;
+    font-size: 16px;
+  }
+
+  .user-box form input[type="submit"], .admin-box form input[type="submit"]{
+    width: 100px;
+    margin-top: 38px;
+    margin-left: 68px;
+    height: 34px;
+    font-size: 18px;
+  }
+
+  .para-2 {
+    top: 560px;
+    margin-left: 106px;
+    font-size: 12px;
+  }
+
+  .para-2 a {
+    font-size: 12px;
+  }
+  
+  .admin-text, .user-text {
+    font-size: 21px;
+    left: 12.26%;
+    top: 67%;
+  }
+
+  .admin-btn, .user-btn {
+    top: 76.5%;
+    font-size: 18px;
+    height: 34px;
+    width: 100px;
+    left: 36.35%;
+  }
+
+  .admin-box h1 {
+    margin-left: 82px;
+  }
+
+  .admin-box h4 {
+    margin-left: 27px;
+
+  }
+
+
 }

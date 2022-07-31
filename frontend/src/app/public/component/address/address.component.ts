@@ -2,6 +2,7 @@ import { GlobalUrl } from '../../../url/global-url';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { NotifyService } from 'src/app/core/services/notify.service';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class AddressComponent implements OnInit {
   constructor(
     private http:HttpClient,
     private router:Router,
+    private notify: NotifyService
     ) { }
 
   AddressData(data:any) {
@@ -22,10 +24,11 @@ export class AddressComponent implements OnInit {
     this.http.post(GlobalUrl.url+"/addAddress",{foodieID:foodieID,doorNo:data.doorNo,street:data.street,area:data.area,district:data.district,pincode:data.pincode})
         .subscribe(
           (res:any)=>{
-          alert("Your address added successfully")
+          this.notify.addressAdded()
           console.log(res.message)
           this.router.navigate(['login'])
         },(err)=>{
+          this.notify.addressError()
           console.log("Something went wrong")
         })    
   }

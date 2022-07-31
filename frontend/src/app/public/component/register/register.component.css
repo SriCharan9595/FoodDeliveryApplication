@@ -91,3 +91,60 @@
   font-size: 23px;
 }
 
+@media (max-width: 600px) {
+  .bg {
+      display: none;
+  }
+
+  .signup-box {
+    width: 292px;
+    height: 524px;
+    top: 50px;
+    margin-left: 39px;
+  }
+
+  .signup-box h1 {
+    font-size: 32px;
+    margin-left: 88px;
+  }
+
+  .signup-box h4 {
+    font-size: 18px;
+    margin-left: 34px;
+  }
+
+  .signup-box form label {
+    font-size: 18px;
+  }
+
+  .signup-box form {
+    margin-left: 27px;
+  }
+
+  .signup-box form input {
+    width: 78.7%;
+    height: 20px;
+    padding: 0px;
+    font-size: 16px;
+  }
+
+  .signup-box form input[type="submit"] {
+    width: 100px;
+    margin-top: 35px;
+    margin-left: 66px;
+    height: 34px;
+    font-size: 18px;
+  }
+
+  .para-2 {
+    top: 584px;
+    margin-left: 52px;
+    font-size: 18px;
+  }
+
+  .para-2 a {
+    font-size: 18px;
+  }
+
+
+}

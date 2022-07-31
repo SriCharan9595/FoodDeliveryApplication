@@ -25,14 +25,24 @@ export class NotifyService {
     this.toastr.success("Your Order is Placed Successfully")
   }
 
+  addressAdded() {
+    this.toastr.success("Address Added Successfully")
+  }
+
   addressReplace() {
     this.toastr.success("Your Address is replaced Successfully")
+  }
+
+  registerSuccess() {
+    this.toastr.success("User Registered Successfully")
+  }
+
+  addressError() {
+    this.toastr.success("Some Fields are Missing")
   }
 
   logout() {
     this.toastr.success("Logged Out Successfully")
   }
-
-
 
 }  

@@ -19,18 +19,18 @@
 </div> -->
 
 <nav class="navbar">
-    
+
     <div class="logo">MENU LIST</div>
-    
+
     <ul class="nav-links">
-        
+
         <input type="checkbox" id="checkbox_toggle" />
         <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-        
+
         <div class="menu">
             <li><a routerLink="/category" routerLinkActive="active">CATEGORY</a></li>
             <li><a routerLink="/hotel" routerLinkActive="active">RESTAURANTS</a></li>
-            <li><a (click) = "logout()">LOGOUT</a></li>
+            <li><a (click)="logout()">LOGOUT</a></li>
         </div>
     </ul>
 </nav>
@@ -93,8 +93,15 @@
             </div>
         </div>
     </div>
-    <div  class="order-now">
-        <a  routerLink="/getBill" routerLinkActive="active"><button>ORDER NOW !</button></a>
+    <div class="order-now">
+        <div *ngIf="cart.length==0; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock> 
+            <a> <button type="button" disabled> NO ITEMS IN CART </button> </a>
+        </ng-template>
+
+        <ng-template #elseBlock>
+            <a routerLink="/getBill" routerLinkActive="active"> <button>ORDER NOW !</button> </a>
+        </ng-template>
     </div>
 
 </div>

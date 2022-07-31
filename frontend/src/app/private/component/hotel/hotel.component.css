@@ -181,7 +181,7 @@ input[type=checkbox] {
 }
 
 .box h4 {
-    margin-top: -8px;
+    margin-top: 15px;
     background-color: #D6D1CB;
     font-family: 'Macondo', cursive;
     font-size: 26px;
@@ -191,7 +191,7 @@ input[type=checkbox] {
 .box span {
     position: fixed;
     margin-left: 146px;
-    margin-top: -9px;
+    margin-top: 28px;
     height: 35px;
     width: 75px;
     padding-top: 5px;
@@ -203,7 +203,7 @@ input[type=checkbox] {
 }
 
 .submit-btn {
-    margin-top: 62px;
+    margin-top: 96px;
     margin-left: 96px;
     width: 175px;
     height: 45px;
@@ -225,4 +225,12 @@ input[type=checkbox] {
 
 .end {
     padding-bottom: 0px;
+}
+
+@media (max-width: 600px) {
+
+    .hotel {
+        display: flex;
+        flex-direction: column ;
+    }
 }
